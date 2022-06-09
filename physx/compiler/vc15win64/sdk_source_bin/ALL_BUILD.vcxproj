@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="checked|x64">
+      <Configuration>checked</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="profile|x64">
+      <Configuration>profile</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{584DAA33-0670-333D-BC4D-832E81F5D2F1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/source/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_source_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\template\PxIncludeTemplate.h;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SimulationController.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SimulationController.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/source/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_source_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\template\PxIncludeTemplate.h;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SimulationController.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SimulationController.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/source/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_source_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\template\PxIncludeTemplate.h;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SimulationController.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SimulationController.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/source/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_source_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\template\PxIncludeTemplate.h;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\SimulationController.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\FastXml.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevel.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelAABB.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\LowLevelDynamics.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysX.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCharacterKinematic.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCommon.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXCooking.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXExtensions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXFoundation.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXPvdSDK.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXTask.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\PhysXVehicle.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SceneQuery.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\windows\SimulationController.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\ZERO_CHECK.vcxproj">
+      <Project>{09E6D463-1BF9-37D7-943D-550C451B0F6B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\FastXml.vcxproj">
+      <Project>{BB280BA5-4B0C-3510-972A-649D8855E85F}</Project>
+      <Name>FastXml</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\LowLevel.vcxproj">
+      <Project>{6B79639C-32E9-3F53-8D3D-D39EBF89443C}</Project>
+      <Name>LowLevel</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\LowLevelAABB.vcxproj">
+      <Project>{1B4FA752-FF40-3D5A-98F7-294C1D138594}</Project>
+      <Name>LowLevelAABB</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\LowLevelDynamics.vcxproj">
+      <Project>{9B66156F-6E4D-3C59-A131-E28DF176B967}</Project>
+      <Name>LowLevelDynamics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysX.vcxproj">
+      <Project>{1A0DA7F0-7B8D-3C04-A48F-225EA27B7294}</Project>
+      <Name>PhysX</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXCharacterKinematic.vcxproj">
+      <Project>{CE500C09-F371-3711-87DB-142F34460D90}</Project>
+      <Name>PhysXCharacterKinematic</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXCommon.vcxproj">
+      <Project>{06D24CDE-CE73-38AF-8AA3-2B50541F879D}</Project>
+      <Name>PhysXCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXCooking.vcxproj">
+      <Project>{76E302EF-DA5C-3780-B901-E0FDA5607691}</Project>
+      <Name>PhysXCooking</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXExtensions.vcxproj">
+      <Project>{43914C49-1CAC-30D4-8831-93E9A91638D8}</Project>
+      <Name>PhysXExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXFoundation.vcxproj">
+      <Project>{D6952FAC-453C-393A-BA31-0FF93EF53799}</Project>
+      <Name>PhysXFoundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXPvdSDK.vcxproj">
+      <Project>{600F1BCE-B8E3-348C-9A1D-D689B13D00DE}</Project>
+      <Name>PhysXPvdSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXTask.vcxproj">
+      <Project>{856EF39C-96B7-34AD-91C4-0860B66D0B1E}</Project>
+      <Name>PhysXTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\PhysXVehicle.vcxproj">
+      <Project>{A9B5D745-0403-30C6-953C-AC8A5C80533E}</Project>
+      <Name>PhysXVehicle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\SceneQuery.vcxproj">
+      <Project>{45EAF5FB-E463-3F4F-9F73-6E0A0AEB3783}</Project>
+      <Name>SceneQuery</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_source_bin\SimulationController.vcxproj">
+      <Project>{9E19828C-D26B-34D2-8B6A-73FAC63D9BDA}</Project>
+      <Name>SimulationController</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

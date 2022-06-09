@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpAABBManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseABP.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseMBP.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseSap.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseSapAux.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseShared.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpMBPTasks.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpSAPTasks.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\include\BpAABBManager.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\include\BpAABBManagerTasks.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\include\BpBroadPhase.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\include\BpBroadPhaseUpdate.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseABP.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseMBP.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseMBPCommon.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseSap.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseSapAux.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpBroadPhaseShared.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpMBPTasks.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\lowlevelaabb\src\BpSAPTasks.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\source\compiler\cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="includes">
+      <UniqueIdentifier>{FCBD3770-5821-33D8-87B1-58A33881D3D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{C6E082D6-69D7-37B8-91DA-072F2CB4E462}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

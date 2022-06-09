@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="checked|x64">
+      <Configuration>checked</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="profile|x64">
+      <Configuration>profile</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{584DAA33-0670-333D-BC4D-832E81F5D2F1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_snippets_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\ConfigureFileMT.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_snippets_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\ConfigureFileMT.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_snippets_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\ConfigureFileMT.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/public" "-BC:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64" --check-stamp-file "C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/compiler/vc15win64/sdk_snippets_bin/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\ConfigureFileMT.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\GetCompilerAndPlatform.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\NvidiaBuildOptions.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\externals\cmakemodules\SetOutputPaths.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\CMakeLists.txt;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\ZERO_CHECK.vcxproj">
+      <Project>{09E6D463-1BF9-37D7-943D-550C451B0F6B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetArticulation.vcxproj">
+      <Project>{E54B1928-3B76-3815-AD81-E117ECA1961A}</Project>
+      <Name>SnippetArticulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetBVHStructure.vcxproj">
+      <Project>{C6923F97-93CE-3343-AB35-6C3E01E24063}</Project>
+      <Name>SnippetBVHStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetContactModification.vcxproj">
+      <Project>{FBBE76F1-563B-3FEE-B29C-87A2DDCCBBAA}</Project>
+      <Name>SnippetContactModification</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetContactReport.vcxproj">
+      <Project>{4AF85E80-D3BB-330D-A30B-2D2A81F8439B}</Project>
+      <Name>SnippetContactReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetContactReportCCD.vcxproj">
+      <Project>{558A6AC4-D0C0-3398-900E-C3B8B31E0A04}</Project>
+      <Name>SnippetContactReportCCD</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetConvert.vcxproj">
+      <Project>{4C4C345B-8AE6-3B05-A431-B8758719B302}</Project>
+      <Name>SnippetConvert</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetConvexMeshCreate.vcxproj">
+      <Project>{23947B06-8C12-380E-A2F2-5C155F2F7832}</Project>
+      <Name>SnippetConvexMeshCreate</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetCustomJoint.vcxproj">
+      <Project>{497EECB3-59F7-3EE0-9638-90697034D3C2}</Project>
+      <Name>SnippetCustomJoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetCustomProfiler.vcxproj">
+      <Project>{C84DD7DF-D1F9-3D12-8532-BA417BB86FC1}</Project>
+      <Name>SnippetCustomProfiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetDeformableMesh.vcxproj">
+      <Project>{D0AB5D4A-EF18-3BB8-A280-D04F0C254917}</Project>
+      <Name>SnippetDeformableMesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetDelayLoadHook.vcxproj">
+      <Project>{AFFE1D4E-BC35-3F4A-972C-F23379666D2A}</Project>
+      <Name>SnippetDelayLoadHook</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetHelloGRB.vcxproj">
+      <Project>{B011C9D8-30B2-3C8E-BC9A-C820217DBCD4}</Project>
+      <Name>SnippetHelloGRB</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetHelloWorld.vcxproj">
+      <Project>{C5D24E3A-6B3E-3D83-8D92-50A1A561DDF9}</Project>
+      <Name>SnippetHelloWorld</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetImmediateArticulation.vcxproj">
+      <Project>{D1058ADC-D4FC-34CB-B4C7-3BA7E8F7ECBF}</Project>
+      <Name>SnippetImmediateArticulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetImmediateMode.vcxproj">
+      <Project>{65852770-A4C7-3717-840A-7A8F5F6284A1}</Project>
+      <Name>SnippetImmediateMode</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetJoint.vcxproj">
+      <Project>{5AFE8C16-2CAE-3020-B874-9544A034A16E}</Project>
+      <Name>SnippetJoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetLoadCollection.vcxproj">
+      <Project>{2BA0CE71-334F-345F-B8DF-D79443DFF549}</Project>
+      <Name>SnippetLoadCollection</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetMBP.vcxproj">
+      <Project>{EF5C4E2A-B06A-3E3F-9FD7-5553FEFACF5D}</Project>
+      <Name>SnippetMBP</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetMultiThreading.vcxproj">
+      <Project>{B9221F95-4372-35F1-B1D2-4069F3050468}</Project>
+      <Name>SnippetMultiThreading</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetNestedScene.vcxproj">
+      <Project>{F4668033-B87B-3B65-ACEC-1A0D8EBCA70B}</Project>
+      <Name>SnippetNestedScene</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetPrunerSerialization.vcxproj">
+      <Project>{C6A562FC-1AFE-3D24-836C-0C06CAFC6A21}</Project>
+      <Name>SnippetPrunerSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetRaycastCCD.vcxproj">
+      <Project>{870F727B-C8A6-3017-835C-F9A3C662E3AD}</Project>
+      <Name>SnippetRaycastCCD</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetRender.vcxproj">
+      <Project>{D891E615-522A-3842-BB7E-E5346A209275}</Project>
+      <Name>SnippetRender</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetSerialization.vcxproj">
+      <Project>{5E9EA6DD-B05F-3407-A455-DEB3AD115B77}</Project>
+      <Name>SnippetSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetSplitFetchResults.vcxproj">
+      <Project>{1A9C88C4-7522-3405-992D-EA55045C7F3A}</Project>
+      <Name>SnippetSplitFetchResults</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetSplitSim.vcxproj">
+      <Project>{FBC7178D-1468-3E75-8DCF-C96A369B2AF7}</Project>
+      <Name>SnippetSplitSim</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetStepper.vcxproj">
+      <Project>{1C4D3B8A-E2B6-3EAB-A5C8-1A35DF7D111C}</Project>
+      <Name>SnippetStepper</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetToleranceScale.vcxproj">
+      <Project>{645B1E17-57F8-3729-AEE7-BB1F34EE5ACC}</Project>
+      <Name>SnippetToleranceScale</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetTriangleMeshCreate.vcxproj">
+      <Project>{D5EAAD37-8F16-3A00-B2D9-17AF1E4AC6BB}</Project>
+      <Name>SnippetTriangleMeshCreate</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetTriggers.vcxproj">
+      <Project>{C7BD5FAF-93E8-3078-88B1-28F5EECA0E9F}</Project>
+      <Name>SnippetTriggers</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetUtils.vcxproj">
+      <Project>{91376A70-98F9-35CC-8A90-797FF21AC034}</Project>
+      <Name>SnippetUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetVehicle4W.vcxproj">
+      <Project>{F03EDDB1-8B76-34CF-9AF4-EAEA84A0BA15}</Project>
+      <Name>SnippetVehicle4W</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetVehicleContactMod.vcxproj">
+      <Project>{A33E4E5E-24C2-30BA-AE14-09416F289F5F}</Project>
+      <Name>SnippetVehicleContactMod</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetVehicleMultiThreading.vcxproj">
+      <Project>{98454EB6-8DD8-3E4A-8324-E6813AD42DB0}</Project>
+      <Name>SnippetVehicleMultiThreading</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetVehicleNoDrive.vcxproj">
+      <Project>{99BBAD19-A851-398F-9D3B-F2B5CBB1762F}</Project>
+      <Name>SnippetVehicleNoDrive</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetVehicleScale.vcxproj">
+      <Project>{B4C7638E-0887-30FF-A995-F71C951294DD}</Project>
+      <Name>SnippetVehicleScale</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\PhysX\physx\compiler\vc15win64\sdk_snippets_bin\SnippetVehicleTank.vcxproj">
+      <Project>{ABD58123-8E9B-3A52-A450-F650D9A56685}</Project>
+      <Name>SnippetVehicleTank</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

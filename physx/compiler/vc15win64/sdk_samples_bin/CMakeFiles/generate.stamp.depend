@@ -1,0 +1,21 @@
+# CMake generation dependency list for this directory.
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/externals/cmakemodules/ConfigureFileMT.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/externals/cmakemodules/GetCompilerAndPlatform.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/externals/cmakemodules/NvidiaBuildOptions.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/externals/cmakemodules/SetOutputPaths.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/externals/targa/targa-config-version.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/externals/targa/targa-config.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/CMakeLists.txt
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/SampleBase.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/SampleFramework.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/SamplePlatform.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/SampleRenderer.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/Samples.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/SamplesToolkit.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/CMakeLists.txt
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/SampleBase.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/SampleFramework.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/SamplePlatform.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/SampleRenderer.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/Samples.cmake
+C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/PhysX/physx/samples/compiler/cmake/windows/SamplesToolkit.cmake
