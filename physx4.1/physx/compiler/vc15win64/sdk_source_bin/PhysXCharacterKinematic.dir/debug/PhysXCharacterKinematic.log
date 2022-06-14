@@ -1,0 +1,12 @@
+﻿  Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/NetEase-Games-Project/physx4.1/physx/source/compiler/cmake/CMakeLists.txt
+  CctBoxController.cpp
+  CctCapsuleController.cpp
+  CctCharacterController.cpp
+  CctCharacterControllerCallbacks.cpp
+  CctCharacterControllerManager.cpp
+  CctController.cpp
+  CctObstacleContext.cpp
+  CctSweptBox.cpp
+  CctSweptCapsule.cpp
+  CctSweptVolume.cpp
+  PhysXCharacterKinematic.vcxproj -> C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\bin\win.x86_64.vc141.mt\debug\PhysXCharacterKinematic_static_64.lib

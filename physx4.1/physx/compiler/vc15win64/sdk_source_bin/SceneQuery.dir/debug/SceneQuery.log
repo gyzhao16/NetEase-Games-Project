@@ -1,0 +1,17 @@
+﻿  Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/NetEase-Games-Project/physx4.1/physx/source/compiler/cmake/CMakeLists.txt
+  SqAABBPruner.cpp
+  SqAABBTree.cpp
+  SqIncrementalAABBPruner.cpp
+  SqIncrementalAABBPrunerCore.cpp
+  SqIncrementalAABBTree.cpp
+  SqAABBTreeUpdateMap.cpp
+  SqBounds.cpp
+  SqCompoundPruner.cpp
+  SqCompoundPruningPool.cpp
+  SqBucketPruner.cpp
+  SqExtendedBucketPruner.cpp
+  SqMetaData.cpp
+  SqPruningPool.cpp
+  SqPruningStructure.cpp
+  SqSceneQueryManager.cpp
+  SceneQuery.vcxproj -> C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\bin\win.x86_64.vc141.mt\debug\SceneQuery_static_64.lib

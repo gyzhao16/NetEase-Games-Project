@@ -1,0 +1,12 @@
+﻿  Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/NetEase-Games-Project/physx4.1/physx/snippets/compiler/cmake/CMakeLists.txt
+  ClassicMain.cpp
+  SnippetVehicleContactMod.cpp
+  SnippetVehicleContactModRender.cpp
+  SnippetVehicle4WCreate.cpp
+  SnippetVehicleCreate.cpp
+  SnippetVehicleFilterShader.cpp
+  SnippetVehicleNoDriveCreate.cpp
+  SnippetVehicleSceneQuery.cpp
+  SnippetVehicleTankCreate.cpp
+  SnippetVehicleTireFriction.cpp
+  SnippetVehicleContactMod.vcxproj -> C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\bin\win.x86_64.vc141.mt\debug\SnippetVehicleContactMod_64.exe
