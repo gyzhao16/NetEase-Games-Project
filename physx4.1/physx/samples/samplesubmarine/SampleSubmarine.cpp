@@ -59,7 +59,7 @@ using namespace PxToolkit;
 using namespace SampleRenderer;
 using namespace SampleFramework;
 
-REGISTER_SAMPLE(SampleSubmarine, "SampleSubmarine")
+//REGISTER_SAMPLE(SampleSubmarine, "SampleSubmarine")
 
 static PxVec3				gBuoyancy = PxVec3(0, 1.0f, 0);
 static PxRigidDynamic*		gTreasureActor = NULL;

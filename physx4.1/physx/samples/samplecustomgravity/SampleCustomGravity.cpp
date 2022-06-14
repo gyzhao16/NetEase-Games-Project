@@ -48,7 +48,7 @@
 #include "characterkinematic/PxCapsuleController.h"
 
 
-REGISTER_SAMPLE(SampleCustomGravity, "SampleCustomGravity")
+//REGISTER_SAMPLE(SampleCustomGravity, "SampleCustomGravity")
 
 #define PLANET_RADIUS	20.0f
 //#define PLANET_RADIUS	100.0f

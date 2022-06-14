@@ -44,7 +44,7 @@
 #include <SamplePlatform.h>
 #include <SampleUserInput.h>
 
-REGISTER_SAMPLE(SampleNorthPole, "SampleNorthPole")
+//REGISTER_SAMPLE(SampleNorthPole, "SampleNorthPole")
 
 using namespace SampleFramework;
 using namespace SampleRenderer;

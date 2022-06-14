@@ -67,7 +67,7 @@ static const PxF32 CAMERA_MAX_SPEED			= 120.0f;
 
 const char* gDynamic = "Dynamic";
 
-REGISTER_SAMPLE(SampleLargeWorld, "SampleLargeWorld")	
+//REGISTER_SAMPLE(SampleLargeWorld, "SampleLargeWorld")	
 
 ///////////////////////////////////////////////////////////////////////////////
 SampleLargeWorld::SampleLargeWorld(PhysXSampleApplication& app) 

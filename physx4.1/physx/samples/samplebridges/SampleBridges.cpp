@@ -76,7 +76,7 @@
 using namespace SampleRenderer;
 using namespace SampleFramework;
 
-REGISTER_SAMPLE(SampleBridges, "SampleBridges")
+//REGISTER_SAMPLE(SampleBridges, "SampleBridges")
 
 //using namespace physx;
 

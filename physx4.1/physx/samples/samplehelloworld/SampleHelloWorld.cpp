@@ -50,7 +50,7 @@
 using namespace SampleRenderer;
 using namespace SampleFramework;
 
-REGISTER_SAMPLE(SampleHelloWorld, "SampleHelloWorld")
+//REGISTER_SAMPLE(SampleHelloWorld, "SampleHelloWorld")
 
 ///////////////////////////////////////////////////////////////////////////////
 
