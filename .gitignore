@@ -1,3 +1,6 @@
 # physx4.1/physx/compiler/vc15win64
 physx4.1/physx/bin/win.x86_64.vc141.mt
 .vs
+*.obj
+*.tlog
+*.log
