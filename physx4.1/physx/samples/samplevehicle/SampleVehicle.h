@@ -38,6 +38,7 @@
 #include "SampleVehicle_VehicleManager.h"
 #include "SampleVehicle_GameLogic.h"
 #include "vehicle/PxVehicleTireFriction.h"
+#include "MyController.h"
 
 class SampleVehicle : public PhysXSample
 {
@@ -82,6 +83,7 @@ private:
 	SampleVehicle_ControlInputs		mControlInputs;
 	SampleVehicle_CameraController	mCameraController;
 	SampleVehicle_VehicleController	mVehicleController;
+	MyController mMyController;
 
 
 	//Terrain

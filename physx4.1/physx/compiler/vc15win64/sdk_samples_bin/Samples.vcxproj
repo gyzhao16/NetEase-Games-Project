@@ -339,7 +339,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\samples\samplevehicle\MyController.cpp" />
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridges.cpp" />
+    <ClInclude Include="..\..\..\samples\samplevehicle\MyController.h" />
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridges.h" />
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridgesCCT.cpp" />
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridgesInputEventIds.h" />

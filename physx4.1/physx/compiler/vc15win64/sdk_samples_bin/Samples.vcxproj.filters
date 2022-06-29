@@ -109,6 +109,9 @@
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplecctsharedcode\SampleCCTJump.cpp">
       <Filter>CCTShared</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\samples\samplevehicle\MyController.cpp">
+      <Filter>SampleVehicle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridges.h">
@@ -209,6 +212,9 @@
     </ClInclude>
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplecctsharedcode\SampleCCTJump.h">
       <Filter>CCTShared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\samples\samplevehicle\MyController.h">
+      <Filter>SampleVehicle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

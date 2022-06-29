@@ -724,14 +724,15 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	{
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
+		mMyController.Update();
 		mVehicleController.setCarKeyboardInputs(
-			mControlInputs.getAccelKeyPressed(),
-			mControlInputs.getBrakeKeyPressed(),
-			mControlInputs.getHandbrakeKeyPressed(),
-			mControlInputs.getSteerLeftKeyPressed(),
-			mControlInputs.getSteerRightKeyPressed(),
-			mControlInputs.getGearUpKeyPressed(),
-			mControlInputs.getGearDownKeyPressed());
+			mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
+			mMyController.getBrake(), // mControlInputs.getBrakeKeyPressed(),
+			mMyController.getHandbrake(), // mControlInputs.getHandbrakeKeyPressed(),
+			mMyController.getSteerLeft(), // mControlInputs.getSteerLeftKeyPressed(),
+			mMyController.getSteerRight(), // mControlInputs.getSteerRightKeyPressed(),
+			mMyController.getGearUp(), // mControlInputs.getGearUpKeyPressed(),
+			mMyController.getGearDown() /* mControlInputs.getGearDownKeyPressed() */);
 		mVehicleController.setCarGamepadInputs(
 			mControlInputs.getAccel(),
 			mControlInputs.getBrake(),
