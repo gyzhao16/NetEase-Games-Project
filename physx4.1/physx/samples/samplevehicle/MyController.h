@@ -18,6 +18,7 @@ public:
 
 	void Update();
 
+	// get mycontroller data
 	bool getAccel() { return accel; }
 	bool getBrake() { return brake; }
 	bool getHandbrake() { return handbrake; }
@@ -27,8 +28,10 @@ public:
 	bool getGearDown() { return gearDown; }
 
 private:
-	PxVec3 p;
-	PxQuat q;
+	PxVec3 p; // current position
+	PxQuat q; // current direction
+
+	// simulate keyboard inputs
 	bool accel;
 	bool brake;
 	bool handbrake;

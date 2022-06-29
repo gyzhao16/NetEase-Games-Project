@@ -8,8 +8,11 @@ MyController::~MyController() {
 
 }
 
+// update vehicle controls according to current situation
 void MyController::Update() {
 	
+	// pid controller to be implemented
+
 	accel = true;
 	brake = false;
 	handbrake = false;

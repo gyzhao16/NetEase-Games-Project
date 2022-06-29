@@ -724,6 +724,7 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	{
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
+		// update mycontroller and vehiclecontroller accordingly
 		mMyController.Update();
 		mVehicleController.setCarKeyboardInputs(
 			mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
