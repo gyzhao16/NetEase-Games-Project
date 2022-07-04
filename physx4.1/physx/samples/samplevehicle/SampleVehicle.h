@@ -83,7 +83,7 @@ private:
 	SampleVehicle_ControlInputs		mControlInputs;
 	SampleVehicle_CameraController	mCameraController;
 	SampleVehicle_VehicleController	mVehicleController;
-	MyController mMyController;
+	AutonomousController mMyController;
 
 
 	//Terrain

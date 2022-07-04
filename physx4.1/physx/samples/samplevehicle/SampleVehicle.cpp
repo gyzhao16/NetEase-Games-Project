@@ -719,13 +719,16 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 
 void SampleVehicle::onSubstep(PxF32 dtime)
 {
+	PxVehicleWheels* my_vehicle = mVehicleManager.getVehicle(mPlayerVehicle);
+	mMyController.setVehicle(my_vehicle);
+
 	//Update the vehicle controls.
 	switch(mPlayerVehicleType)
 	{
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
 		// update mycontroller and vehiclecontroller accordingly
-		mMyController.Update();
+		mMyController.Update(dtime);
 		mVehicleController.setCarKeyboardInputs(
 			mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
 			mMyController.getBrake(), // mControlInputs.getBrakeKeyPressed(),
