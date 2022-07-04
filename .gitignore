@@ -4,3 +4,13 @@ physx4.1/physx/bin/win.x86_64.vc141.mt
 *.obj
 *.tlog
 *.log
+*.dll
+*.exe
+*.pdb
+*.lib
+*CmakeFiles*
+*.ilk
+*.user
+*.recipe
+*.txt
+*.cmake
