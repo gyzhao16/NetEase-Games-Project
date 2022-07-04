@@ -1,6 +1,0 @@
-﻿  Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/NetEase-Games-Project/physx4.1/physx/samples/compiler/cmake/CMakeLists.txt
-  WindowsSamplePlatform.cpp
-  WindowsSampleUserInput.cpp
-  SamplePlatform.cpp
-  SampleUserInput.cpp
-  SamplePlatform.vcxproj -> C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\bin\win.x86_64.vc141.mt\debug\SamplePlatform_static_64.lib

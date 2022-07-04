@@ -1,7 +1,0 @@
-﻿  Building Custom Rule C:/Users/Guangyuan Zhao/Documents/GitHub/NetEase-Games-Project/NetEase-Games-Project/physx4.1/physx/samples/compiler/cmake/CMakeLists.txt
-  PxTkBmpLoader.cpp
-  PxTkFPS.cpp
-  PxTkMatrixUtils.cpp
-  PxTkRandom.cpp
-  PxTkStream.cpp
-  SampleToolkit.vcxproj -> C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\bin\win.x86_64.vc141.mt\debug\SamplesToolkit_static_64.lib
