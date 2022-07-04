@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="checked|x64">
+      <Configuration>checked</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="profile|x64">
+      <Configuration>profile</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CFB641C9-434F-30C0-A04F-1D5A37D9970A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Building Custom Rule F:/src/NetEase-Games-Project/physx4.1/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/src/NetEase-Games-Project/physx4.1/physx/compiler/public -BF:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64 --check-stamp-file F:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64/sdk_snippets_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\ConfigureFileMT.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\GetCompilerAndPlatform.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\NvidiaBuildOptions.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\SetOutputPaths.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\CMakeLists.txt;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Building Custom Rule F:/src/NetEase-Games-Project/physx4.1/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/src/NetEase-Games-Project/physx4.1/physx/compiler/public -BF:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64 --check-stamp-file F:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64/sdk_snippets_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\ConfigureFileMT.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\GetCompilerAndPlatform.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\NvidiaBuildOptions.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\SetOutputPaths.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\CMakeLists.txt;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Building Custom Rule F:/src/NetEase-Games-Project/physx4.1/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/src/NetEase-Games-Project/physx4.1/physx/compiler/public -BF:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64 --check-stamp-file F:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64/sdk_snippets_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\ConfigureFileMT.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\GetCompilerAndPlatform.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\NvidiaBuildOptions.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\SetOutputPaths.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\CMakeLists.txt;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Building Custom Rule F:/src/NetEase-Games-Project/physx4.1/physx/snippets/compiler/cmake/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/src/NetEase-Games-Project/physx4.1/physx/compiler/public -BF:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64 --check-stamp-file F:/src/NetEase-Games-Project/physx4.1/physx/compiler/vc16win64/sdk_snippets_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\ConfigureFileMT.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\GetCompilerAndPlatform.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\NvidiaBuildOptions.cmake;F:\src\NetEase-Games-Project\physx4.1\externals\cmakemodules\SetOutputPaths.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\SnippetVehicleTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\CMakeLists.txt;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetRender.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetTemplate.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetUtils.cmake;F:\src\NetEase-Games-Project\physx4.1\physx\snippets\compiler\cmake\windows\SnippetVehicleTemplate.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\ZERO_CHECK.proj">
+      <Project>{FB51D7CC-B322-337D-8C3B-24EA4FA857CC}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetArticulation.vcxproj">
+      <Project>{C08185D7-4683-39D5-A140-EFFBA6673F27}</Project>
+      <Name>SnippetArticulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetBVHStructure.vcxproj">
+      <Project>{9ADA1F42-AEB0-355D-869D-EDE5CA80AB76}</Project>
+      <Name>SnippetBVHStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetContactModification.vcxproj">
+      <Project>{F5C9A3D0-3D64-3B77-9415-17082162E235}</Project>
+      <Name>SnippetContactModification</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetContactReport.vcxproj">
+      <Project>{863B4E41-2AFA-3B03-AADF-DA9369BFB2E8}</Project>
+      <Name>SnippetContactReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetContactReportCCD.vcxproj">
+      <Project>{FB834EF8-04AB-32AB-8F33-54CC2DB2586B}</Project>
+      <Name>SnippetContactReportCCD</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetConvert.vcxproj">
+      <Project>{07A6CD29-0820-3421-BE8C-CE3652E4339D}</Project>
+      <Name>SnippetConvert</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetConvexMeshCreate.vcxproj">
+      <Project>{4E8BD5DC-EF19-3AC2-B4FC-632B12D6611F}</Project>
+      <Name>SnippetConvexMeshCreate</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetCustomJoint.vcxproj">
+      <Project>{B309D9EB-C09B-3BFD-B50F-C01664F5A408}</Project>
+      <Name>SnippetCustomJoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetCustomProfiler.vcxproj">
+      <Project>{C075BC19-EFA2-36E3-8A77-396962778FBF}</Project>
+      <Name>SnippetCustomProfiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetDeformableMesh.vcxproj">
+      <Project>{F43D1557-634E-330F-9CC4-29C6BD5DBBC3}</Project>
+      <Name>SnippetDeformableMesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetDelayLoadHook.vcxproj">
+      <Project>{83F34875-546E-34D2-8AE0-B5A6994014A1}</Project>
+      <Name>SnippetDelayLoadHook</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetHelloGRB.vcxproj">
+      <Project>{02DA0BAA-E8F9-3CAD-9C6C-08A0D7207868}</Project>
+      <Name>SnippetHelloGRB</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetHelloWorld.vcxproj">
+      <Project>{2115F461-248D-37AA-A4EF-C813D03B7D8A}</Project>
+      <Name>SnippetHelloWorld</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetImmediateArticulation.vcxproj">
+      <Project>{F2916547-1E5B-3CB7-9A83-CC7EB19F8837}</Project>
+      <Name>SnippetImmediateArticulation</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetImmediateMode.vcxproj">
+      <Project>{E756E195-FD4E-36BD-A754-0FD7EA8BD0BF}</Project>
+      <Name>SnippetImmediateMode</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetJoint.vcxproj">
+      <Project>{28687A2C-020A-3033-BDDF-ACC406A353BF}</Project>
+      <Name>SnippetJoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetLoadCollection.vcxproj">
+      <Project>{EC1746D6-9CE3-32B9-8291-5F06C772DB56}</Project>
+      <Name>SnippetLoadCollection</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetMBP.vcxproj">
+      <Project>{25CCAD08-5F0D-39BC-AC92-6652D4369B4B}</Project>
+      <Name>SnippetMBP</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetMultiThreading.vcxproj">
+      <Project>{7DF0161D-690F-3911-A9D5-D3602BFDBA07}</Project>
+      <Name>SnippetMultiThreading</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetNestedScene.vcxproj">
+      <Project>{B2E167C1-BB38-330B-8665-280A91519962}</Project>
+      <Name>SnippetNestedScene</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetPrunerSerialization.vcxproj">
+      <Project>{92BCB13F-816D-3B61-933C-D475A4665485}</Project>
+      <Name>SnippetPrunerSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetRaycastCCD.vcxproj">
+      <Project>{00878985-3D83-318F-AD86-693DC64ECC50}</Project>
+      <Name>SnippetRaycastCCD</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetRender.vcxproj">
+      <Project>{7A10591B-8BC7-370B-99CD-12704ABE370B}</Project>
+      <Name>SnippetRender</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetSerialization.vcxproj">
+      <Project>{AFC803E8-C293-3DF9-92F9-4090BEAAE2A7}</Project>
+      <Name>SnippetSerialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetSplitFetchResults.vcxproj">
+      <Project>{5B180293-D33B-3C8A-9DCF-D8A282F2AD04}</Project>
+      <Name>SnippetSplitFetchResults</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetSplitSim.vcxproj">
+      <Project>{BDB4C753-3D22-3430-849D-961F5B79FD81}</Project>
+      <Name>SnippetSplitSim</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetStepper.vcxproj">
+      <Project>{4790D912-E2A3-36CF-A3AE-0D0E697F1264}</Project>
+      <Name>SnippetStepper</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetToleranceScale.vcxproj">
+      <Project>{3E59C70E-3EFF-358B-AF86-86BE8745109C}</Project>
+      <Name>SnippetToleranceScale</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetTriangleMeshCreate.vcxproj">
+      <Project>{600337A8-EB88-3DEC-811F-6983404CD3EE}</Project>
+      <Name>SnippetTriangleMeshCreate</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetTriggers.vcxproj">
+      <Project>{DA5C7AF9-3676-3EBD-A3CF-8647464F3C39}</Project>
+      <Name>SnippetTriggers</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetUtils.vcxproj">
+      <Project>{74EA8ED0-1F8E-3936-9628-B7538D2E7D79}</Project>
+      <Name>SnippetUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetVehicle4W.vcxproj">
+      <Project>{AB8FAE4D-2A26-3B81-9A59-34D6CD3F0A5F}</Project>
+      <Name>SnippetVehicle4W</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetVehicleContactMod.vcxproj">
+      <Project>{FC7B3EA4-9E17-376B-97BE-2C8CDA523290}</Project>
+      <Name>SnippetVehicleContactMod</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetVehicleMultiThreading.vcxproj">
+      <Project>{0E7B7C04-1CCC-318B-BA33-BCC927043A05}</Project>
+      <Name>SnippetVehicleMultiThreading</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetVehicleNoDrive.vcxproj">
+      <Project>{4FE76E94-0526-31C0-9A61-FB7C48F1912A}</Project>
+      <Name>SnippetVehicleNoDrive</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetVehicleScale.vcxproj">
+      <Project>{6F72CEB5-763C-39D1-9888-EF19CE2B5CEF}</Project>
+      <Name>SnippetVehicleScale</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\sdk_snippets_bin\SnippetVehicleTank.vcxproj">
+      <Project>{26109CCD-00B9-3B56-9FA4-A256738A3FCE}</Project>
+      <Name>SnippetVehicleTank</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\src\NetEase-Games-Project\physx4.1\physx\compiler\vc16win64\CMakeFiles\24fb950eea7fdaf44cfa7b3396b55e66\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1C0A34D2-7CF1-3938-B1AA-2E1EA409AABF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventImpl.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvd.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdDataStream.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdDefaultFileTransport.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdDefaultSocketTransport.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdImpl.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdMemClient.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdObjectModelMetaData.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdObjectRegistrar.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdProfileZoneClient.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdUserRenderer.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\include\pvd\PxPvd.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\include\pvd\PxPvdTransport.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\filebuf\include\PsAsciiConversion.h">
+      <Filter>filebuf\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\filebuf\include\PsAsciiConversion.inl">
+      <Filter>filebuf\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\filebuf\include\PsFileBuffer.h">
+      <Filter>filebuf\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\filebuf\include\PsIOStream.h">
+      <Filter>filebuf\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\filebuf\include\PsIOStream.inl">
+      <Filter>filebuf\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\filebuf\include\PsMemoryBuffer.h">
+      <Filter>filebuf\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PsPvd.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxProfileAllocatorWrapper.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdClient.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdDataStream.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdDataStreamHelpers.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdErrorCodes.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdObjectModelBaseTypes.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdRenderBuffer.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\include\PxPvdUserRenderer.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileContextProvider.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileContextProviderImpl.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileDataBuffer.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileDataParsing.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventBuffer.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventBufferAtomic.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventBufferClient.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventBufferClientManager.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventId.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventMutex.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventNames.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEvents.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventSender.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileEventSerialization.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileMemory.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileMemoryBuffer.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileMemoryEventBuffer.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileMemoryEvents.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileScopedEvent.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileScopedMutexLock.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdProfileZone.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileZoneImpl.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileZoneManager.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxProfileZoneManagerImpl.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdBits.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdByteStreams.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdCommStreamEvents.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdCommStreamEventSink.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdCommStreamTypes.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdDefaultFileTransport.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdDefaultSocketTransport.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdFoundation.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdImpl.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdInternalByteStreams.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdMarshalling.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdMemClient.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdObjectModelInternalTypeDefs.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdObjectModelInternalTypes.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdObjectModelMetaData.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdObjectRegistrar.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdProfileZoneClient.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdUserRenderImpl.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\pvd\src\PxPvdUserRenderTypes.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\src\NetEase-Games-Project\physx4.1\physx\source\compiler\cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="filebuf">
+      <UniqueIdentifier>{31A99E61-55F7-30DD-B864-638AD14E9309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="filebuf\include">
+      <UniqueIdentifier>{1B7D55EB-6A8A-344B-8059-E7EE54FCEB1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{77480108-FA2C-35D1-8055-D2402388E2C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{A33004F9-C11E-33C5-97DA-A8DB5F30837C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\include">
+      <UniqueIdentifier>{7F591663-C99C-3352-B152-ADB577E17540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\src">
+      <UniqueIdentifier>{A44534B0-582C-3CE0-9777-5EB93D24EAD1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
