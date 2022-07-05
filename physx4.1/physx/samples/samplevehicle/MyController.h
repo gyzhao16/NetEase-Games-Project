@@ -5,8 +5,11 @@
 #include "vehicle/PxVehicleSDK.h"
 #include "vehicle/PxVehicleUpdate.h"
 #include "vehicle/PxVehicleUtilControl.h"
+#include "RenderPhysX3Debug.h"
+#include "RendererColor.h"
 
 using namespace physx;
+using namespace SampleRenderer;
 
 class PID_Controller;
 
@@ -39,7 +42,7 @@ public:
 
 	void Update(float dtime);
 
-	void DrawTrack();
+	void DrawTrack(PxScene* mScene);
 	
 	std::vector<Track> getVehicleTrack() { return m_tracks; }
 

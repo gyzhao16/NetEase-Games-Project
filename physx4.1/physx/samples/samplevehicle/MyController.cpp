@@ -74,7 +74,7 @@ void AutonomousController::Update(float dtime) {
 		m_tracks.erase(m_tracks.begin());
 	}
 	m_tracks.emplace_back(dtime, pose.p, pose.q);
-	DrawTrack();
+	//DrawTrack(pose.p, pose.q);
 
 	accel = true;
 	brake = false;
@@ -85,6 +85,11 @@ void AutonomousController::Update(float dtime) {
 	gearDown = false;
 }
 
-void AutonomousController::DrawTrack() {
+void AutonomousController::DrawTrack(PxScene* mScene) {
+	PxSceneReadLock scopedLock(*mScene);
+	const RendererColor colorPurple(255, 0, 255);
 
+	for (auto ele : m_tracks) {
+		m_renderer->addLine(ele.p, ele.p + PxVec3(0, 1, 0), colorPurple);
+	}
 }

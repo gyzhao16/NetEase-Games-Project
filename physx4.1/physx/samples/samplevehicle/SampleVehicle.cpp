@@ -715,6 +715,10 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 		getDebugRenderer()->addLine(v[i],v[i]+PxVec3(0,5,0),colors[i]);
 		getDebugRenderer()->addLine(v[i]-w[i],v[i]+w[i],colors[i]);
 	}
+
+	// draw track
+	mMyController.setRenderer(getDebugRenderer());
+	mMyController.DrawTrack(mScene);
 }
 
 void SampleVehicle::onSubstep(PxF32 dtime)
