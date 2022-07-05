@@ -39,6 +39,9 @@ public:
 
 	void Update(float dtime);
 
+	void reverseMode() { autonomousModeOn = !autonomousModeOn; }
+	bool isAutonomousModeOn() { return autonomousModeOn; }
+
 	// get mycontroller data
 	bool getAccel() { return accel; }
 	bool getBrake() { return brake; }
@@ -52,6 +55,9 @@ public:
 	void setPath(const std::vector<PxVec3> _paths) { m_paths = _paths; }
 
 private:
+	// Autonomous Mode
+	bool autonomousModeOn;
+
 	// simulate keyboard inputs
 	bool accel;
 	bool brake;

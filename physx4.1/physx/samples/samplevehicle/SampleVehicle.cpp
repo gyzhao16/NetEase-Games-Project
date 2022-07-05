@@ -728,15 +728,27 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
 		// update mycontroller and vehiclecontroller accordingly
-		mMyController.Update(dtime);
-		mVehicleController.setCarKeyboardInputs(
-			mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
-			mMyController.getBrake(), // mControlInputs.getBrakeKeyPressed(),
-			mMyController.getHandbrake(), // mControlInputs.getHandbrakeKeyPressed(),
-			mMyController.getSteerLeft(), // mControlInputs.getSteerLeftKeyPressed(),
-			mMyController.getSteerRight(), // mControlInputs.getSteerRightKeyPressed(),
-			mMyController.getGearUp(), // mControlInputs.getGearUpKeyPressed(),
-			mMyController.getGearDown() /* mControlInputs.getGearDownKeyPressed() */);
+		if (mMyController.isAutonomousModeOn()) {
+			mMyController.Update(dtime);
+			mVehicleController.setCarKeyboardInputs(
+				mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
+				mMyController.getBrake(), // mControlInputs.getBrakeKeyPressed(),
+				mMyController.getHandbrake(), // mControlInputs.getHandbrakeKeyPressed(),
+				mMyController.getSteerLeft(), // mControlInputs.getSteerLeftKeyPressed(),
+				mMyController.getSteerRight(), // mControlInputs.getSteerRightKeyPressed(),
+				mMyController.getGearUp(), // mControlInputs.getGearUpKeyPressed(),
+				mMyController.getGearDown() /* mControlInputs.getGearDownKeyPressed() */);
+		}
+		else {
+			mVehicleController.setCarKeyboardInputs(
+				mControlInputs.getAccelKeyPressed(),
+				mControlInputs.getBrakeKeyPressed(),
+				mControlInputs.getHandbrakeKeyPressed(),
+				mControlInputs.getSteerLeftKeyPressed(),
+				mControlInputs.getSteerRightKeyPressed(),
+				mControlInputs.getGearUpKeyPressed(),
+				mControlInputs.getGearDownKeyPressed());
+		}
 		mVehicleController.setCarGamepadInputs(
 			mControlInputs.getAccel(),
 			mControlInputs.getBrake(),
@@ -1800,6 +1812,9 @@ void SampleVehicle::collectInputEvents(std::vector<const SampleFramework::InputE
 	DIGITAL_INPUT_EVENT_DEF(CAMERA_ROTATE_UP_KBD,											WKEY_NUMPAD8,				OSXKEY_NUMPAD8,		LINUXKEY_NUMPAD8		);
 	DIGITAL_INPUT_EVENT_DEF(CAMERA_ROTATE_DOWN_KBD,											WKEY_NUMPAD2,				OSXKEY_NUMPAD2,		LINUXKEY_NUMPAD2		);
 																							
+	//Autonomous Mode Switch
+	DIGITAL_INPUT_EVENT_DEF(AUTONOMOUS_MODE_KBD,                                            WKEY_NUMPAD1,               OSXKEY_NUMPAD1,     LINUXKEY_NUMPAD1        );
+
 	//General control events on keyboard.																				
 	DIGITAL_INPUT_EVENT_DEF(DEBUG_RENDER_FLAG,												WKEY_F9,					OSXKEY_T,			LINUXKEY_F9				);
 	DIGITAL_INPUT_EVENT_DEF(DEBUG_RENDER_ENGINE,											WKEY_2,						OSXKEY_2,			LINUXKEY_2				);
@@ -1817,6 +1832,13 @@ void SampleVehicle::onDigitalInputEvent(const SampleFramework::InputEvent& ie, b
 {
 	switch (ie.m_Id)
 	{
+	case AUTONOMOUS_MODE_KBD:
+		{
+			if (val) {
+				mMyController.reverseMode();
+			}
+		}
+		break;
 	case VEH_SAVE_KBD:
 		{
 			if(val)

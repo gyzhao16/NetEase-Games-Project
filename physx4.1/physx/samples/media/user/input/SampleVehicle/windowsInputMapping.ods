@@ -6,11 +6,11 @@ InputMapping
 		}
 	UserInputCS
 		{
-		7414393;
+		7414538;
 		}
 	InputEventCS
 		{
-		4197771;
+		4263403;
 		}
 	Map
 		{
@@ -311,6 +311,11 @@ InputMapping
 		{
 		GAMEPAD_RIGHT_STICK_Y;
 		CAMERA_ROTATE_UP_DOWN_PAD;
+		}
+	Map
+		{
+		KEY_NUMPAD1;
+		AUTONOMOUS_MODE_KBD;
 		}
 	Map
 		{
