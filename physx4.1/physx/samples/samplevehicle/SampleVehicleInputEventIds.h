@@ -83,6 +83,8 @@ enum SampleVehicleInputEventIds
 
 	// Autonomous Mode
 	AUTONOMOUS_MODE_KBD,
+	// Draw png file
+	DRAW_PNG_FILE,
 
 	//
 	AUTOMATIC_GEAR,

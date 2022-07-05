@@ -39,6 +39,10 @@ public:
 
 	void Update(float dtime);
 
+	void DrawTrack();
+	
+	std::vector<Track> getVehicleTrack() { return m_tracks; }
+
 	void reverseMode() { autonomousModeOn = !autonomousModeOn; }
 	bool isAutonomousModeOn() { return autonomousModeOn; }
 
@@ -52,6 +56,7 @@ public:
 	bool getGearDown() { return gearDown; }
 
 	void setVehicle(PxVehicleWheels* vehicle) { m_vehicle = vehicle; }
+	void setRenderer(RenderPhysX3Debug* renderer) { m_renderer = renderer; }
 	void setPath(const std::vector<PxVec3> _paths) { m_paths = _paths; }
 
 private:
@@ -74,4 +79,5 @@ private:
 	PID_Controller* m_pid_steer;
 
 	PxVehicleWheels* m_vehicle;
+	RenderPhysX3Debug* m_renderer;
 };

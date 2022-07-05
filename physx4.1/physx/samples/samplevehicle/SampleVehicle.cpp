@@ -728,8 +728,8 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
 		// update mycontroller and vehiclecontroller accordingly
+		mMyController.Update(dtime);
 		if (mMyController.isAutonomousModeOn()) {
-			mMyController.Update(dtime);
 			mVehicleController.setCarKeyboardInputs(
 				mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
 				mMyController.getBrake(), // mControlInputs.getBrakeKeyPressed(),
@@ -1814,6 +1814,8 @@ void SampleVehicle::collectInputEvents(std::vector<const SampleFramework::InputE
 																							
 	//Autonomous Mode Switch
 	DIGITAL_INPUT_EVENT_DEF(AUTONOMOUS_MODE_KBD,                                            WKEY_NUMPAD1,               OSXKEY_NUMPAD1,     LINUXKEY_NUMPAD1        );
+	//Record Track
+	DIGITAL_INPUT_EVENT_DEF(DRAW_PNG_FILE,                                                  WKEY_NUMPAD3,               OSXKEY_NUMPAD3,     LINUXKEY_NUMPAD3        );
 
 	//General control events on keyboard.																				
 	DIGITAL_INPUT_EVENT_DEF(DEBUG_RENDER_FLAG,												WKEY_F9,					OSXKEY_T,			LINUXKEY_F9				);

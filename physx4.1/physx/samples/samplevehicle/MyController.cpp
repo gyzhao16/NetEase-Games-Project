@@ -56,6 +56,7 @@ AutonomousController::AutonomousController()
 	m_pid_accel = new PID_Controller(0.1f, 0.1f, 0.1f);
 	m_pid_steer = new PID_Controller(0.1f, 0.1f, 0.1f);
 	m_vehicle = nullptr;
+	m_renderer = nullptr;
 }
 
 AutonomousController::~AutonomousController()
@@ -67,12 +68,13 @@ AutonomousController::~AutonomousController()
 void AutonomousController::Update(float dtime) {
 	
 	// pid controller to be implemented
-	/*PxTransform pose = m_vehicle->getRigidDynamicActor()->getGlobalPose();
+	PxTransform pose = m_vehicle->getRigidDynamicActor()->getGlobalPose();
 	if (m_tracks.size() > 1000)
 	{
 		m_tracks.erase(m_tracks.begin());
 	}
-	m_tracks.emplace_back(dtime, pose.p, pose.q);*/
+	m_tracks.emplace_back(dtime, pose.p, pose.q);
+	DrawTrack();
 
 	accel = true;
 	brake = false;
@@ -81,4 +83,8 @@ void AutonomousController::Update(float dtime) {
 	steerRight = false;
 	gearUp = false;
 	gearDown = false;
+}
+
+void AutonomousController::DrawTrack() {
+
 }

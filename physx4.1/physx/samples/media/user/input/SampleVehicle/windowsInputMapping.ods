@@ -6,11 +6,11 @@ InputMapping
 		}
 	UserInputCS
 		{
-		7414538;
+		7414686;
 		}
 	InputEventCS
 		{
-		4263403;
+		4329036;
 		}
 	Map
 		{
@@ -316,6 +316,11 @@ InputMapping
 		{
 		KEY_NUMPAD1;
 		AUTONOMOUS_MODE_KBD;
+		}
+	Map
+		{
+		KEY_NUMPAD3;
+		DRAW_PNG_FILE;
 		}
 	Map
 		{
