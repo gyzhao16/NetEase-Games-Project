@@ -28,7 +28,7 @@ struct Track
 	{
 		time = _t;
 		p = _p;
-		_q = q;
+		q = _q;
 	}
 
 	float time;
@@ -65,7 +65,8 @@ public:
 
 	void setVehicle(PxVehicleWheels* vehicle) { m_vehicle = vehicle; }
 	void setRenderer(RenderPhysX3Debug* renderer) { m_renderer = renderer; }
-	void setPath(const std::vector<PxVec3> _paths) { m_paths = _paths; }
+	void setPath(const std::vector<PxVec3> _paths) { m_routes = _paths; }  
+	void setTarget(PxVec3 target);
 
 private:
 	// Autonomous Mode
@@ -83,7 +84,7 @@ private:
 	PxF32 currentSpeed;
 
 	std::vector<Track> m_tracks;
-	std::vector<PxVec3> m_paths;
+	std::vector<PxVec3> m_routes;
 
 	PID_Controller* m_pid_accel;
 	PID_Controller* m_pid_steer;

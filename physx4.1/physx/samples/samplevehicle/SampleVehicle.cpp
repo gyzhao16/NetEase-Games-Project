@@ -723,9 +723,6 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 
 void SampleVehicle::onSubstep(PxF32 dtime)
 {
-	PxVehicleWheels* my_vehicle = mVehicleManager.getVehicle(mPlayerVehicle);
-	mMyController.setVehicle(my_vehicle);
-
 	//Update the vehicle controls.
 	switch(mPlayerVehicleType)
 	{
@@ -1197,6 +1194,12 @@ void SampleVehicle::createVehicles()
 				{
 					mVehicleManager.create4WTank(getActiveScene(),getPhysics(),getCooking(),*mChassisMaterialDrivable,gChassisMass,gWheelCentreOffsets4,gChassisConvexMesh,gWheelConvexMeshes4,gPlayerCarStartTransforms[0],true,mTankDriveModel);
 				}
+			}
+
+			{
+				PxVehicleWheels* my_vehicle = mVehicleManager.getVehicle(mPlayerVehicle);
+				mMyController.setVehicle(my_vehicle);
+				mMyController.setTarget(PxVec3(-154.0f + 40.0f, 8.0f, 87.0f + 40.0f));
 			}
 
 			gNumVehicleAdded++;

@@ -24,8 +24,8 @@ public:
 	{
 		mPrevError = 0.0f;
 		mIntegral = 0.0f;
-		mLower = -FLT_MAX;
-		mUpper = FLT_MAX;
+		mLower = -1.0f;
+		mUpper = 1.0f;
 	}
 
 	float Compute(float dt, float Current, float Target)
@@ -68,9 +68,8 @@ AutonomousController::~AutonomousController()
 
 // update vehicle controls according to current situation
 void AutonomousController::update(float dtime) {
-	
-	// pid controller to be implemented
-	PxTransform pose = m_vehicle->getRigidDynamicActor()->getGlobalPose();
+	const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
+	PxTransform pose = actor->getGlobalPose();
 	if (m_tracks.size() > 1000)
 	{
 		m_tracks.erase(m_tracks.begin());
@@ -78,14 +77,34 @@ void AutonomousController::update(float dtime) {
 	m_tracks.emplace_back(dtime, pose.p, pose.q);
 	//DrawTrack(pose.p, pose.q);
 
-	float input = m_pid_accel->Compute(dtime, currentSpeed, 30.0f);
-
-	accel = physx::PxClamp(input, 0.0f, 1.0f);
-	brake = physx::PxClamp(-input, 0.0f, 1.0f);
+	// pid controller to be implemented
+	accel = 0.0f;
+	brake = 0.0f;
 	handbrake = false;
 	steer = 0.0f;
 	gearUp = false;
 	gearDown = false;
+
+	if (!m_routes.empty())
+	{
+		float dist = (m_routes[0] - pose.p).magnitude();
+		if (dist > 1.0f)
+		{
+			float input = m_pid_accel->Compute(dtime, currentSpeed, 30.0f);
+			accel = physx::PxClamp(input, 0.0f, 1.0f);
+			brake = physx::PxClamp(-input, 0.0f, 1.0f);
+
+			PxVec3 forward = pose.q.rotate(PxVec3(0, 0, 1));
+			PxVec3 up = pose.q.rotate(PxVec3(0, 1, 0));
+			PxVec3 target = (m_routes[0] - pose.p).getNormalized();
+
+			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
+			float dp = forward.dot(target);
+
+			input = m_pid_accel->Compute(dtime, steer_dir * dp, 0.0f);
+			steer = input;
+		}
+	}
 }
 
 void AutonomousController::drawTrack(PxScene* mScene) {
@@ -136,6 +155,12 @@ void AutonomousController::drawPngFile(PxScene* mScene) {
 	
 	svpng(fp, 256, 256, rgb, 0);
 	fclose(fp);
+}
+
+void AutonomousController::setTarget(PxVec3 target)
+{
+	m_routes.clear();
+	m_routes.push_back(target);
 }
 
 bool cmpX(Track& t1, Track& t2) {
