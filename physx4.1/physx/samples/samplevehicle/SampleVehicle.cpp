@@ -303,7 +303,7 @@ SampleVehicle::SampleVehicle(PhysXSampleApplication& app) :
 	//mTankDriveModel						(PxVehicleDriveTankControlModel::eSPECIAL),
 	//mTankDriveModel						(PxVehicleDriveTankControlModel::eSTANDARD),
 	mTerrainSize						(256),
-	mTerrainWidth						(2.0f),
+	mTerrainWidth						(200.0f),
 	mHFActor							(NULL),
 	mHideScreenText						(false),
 	mDebugRenderFlag					(false),
