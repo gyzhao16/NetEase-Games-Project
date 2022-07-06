@@ -88,7 +88,12 @@ void AutonomousController::drawTrack(PxScene* mScene) {
 	PxSceneReadLock scopedLock(*mScene);
 	const RendererColor colorPurple(255, 0, 255);
 
-	for (auto ele : m_tracks) {
-		m_renderer->addLine(ele.p, ele.p + PxVec3(0, 1, 0), colorPurple);
+	if (m_tracks.size() > 1) {
+		for (int i = 1; i < m_tracks.size(); ++i) {
+			m_renderer->addLine(m_tracks[i - 1].p, m_tracks[i].p, colorPurple);
+		}
 	}
+	/*for (auto ele: m_tracks) {
+		m_renderer->addLine(ele.p, ele.p + PxVec3(0, 1, 0), colorPurple);
+	}*/
 }
