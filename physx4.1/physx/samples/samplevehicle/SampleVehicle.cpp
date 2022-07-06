@@ -863,6 +863,9 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 		//Cache forward speed for the HUD to avoid making API calls while vehicle update is running
 		const PxVehicleWheels& focusVehicle = *mVehicleManager.getVehicle(mPlayerVehicle);
 		mForwardSpeedHud = focusVehicle.computeForwardSpeed();
+
+		// update MyController speed
+		mMyController.setCurrentSpeed(mForwardSpeedHud);
 	}
 }
 

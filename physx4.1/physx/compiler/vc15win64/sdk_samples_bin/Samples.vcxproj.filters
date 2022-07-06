@@ -216,9 +216,6 @@
     <ClInclude Include="..\..\..\samples\samplevehicle\MyController.h">
       <Filter>SampleVehicle</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\libPng.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\compiler\cmake\CMakeLists.txt" />

@@ -61,6 +61,8 @@ public:
 	bool getGearUp() { return gearUp; }
 	bool getGearDown() { return gearDown; }
 
+	void setCurrentSpeed(PxF32 speed) { currentSpeed = speed * 3.6f; }
+
 	void setVehicle(PxVehicleWheels* vehicle) { m_vehicle = vehicle; }
 	void setRenderer(RenderPhysX3Debug* renderer) { m_renderer = renderer; }
 	void setPath(const std::vector<PxVec3> _paths) { m_paths = _paths; }
@@ -76,6 +78,9 @@ private:
 	PxF32 steer;
 	bool gearUp;
 	bool gearDown;
+
+	// current speed in kmh
+	PxF32 currentSpeed;
 
 	std::vector<Track> m_tracks;
 	std::vector<PxVec3> m_paths;
