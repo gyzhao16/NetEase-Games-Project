@@ -101,7 +101,7 @@ void AutonomousController::update(float dtime) {
 			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
 			float dp = forward.dot(target);
 
-			input = m_pid_accel->Compute(dtime, steer_dir * dp, 0.0f);
+			input = m_pid_steer->Compute(dtime, steer_dir * dp, 0.0f);
 			steer = input;
 		}
 	}
