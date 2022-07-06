@@ -718,7 +718,7 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 
 	// draw track
 	mMyController.setRenderer(getDebugRenderer());
-	mMyController.DrawTrack(mScene);
+	mMyController.drawTrack(mScene);
 }
 
 void SampleVehicle::onSubstep(PxF32 dtime)
@@ -732,16 +732,23 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
 		// update mycontroller and vehiclecontroller accordingly
-		mMyController.Update(dtime);
+		mMyController.update(dtime);
 		if (mMyController.isAutonomousModeOn()) {
 			mVehicleController.setCarKeyboardInputs(
-				mMyController.getAccel(), // mControlInputs.getAccelKeyPressed(),
-				mMyController.getBrake(), // mControlInputs.getBrakeKeyPressed(),
-				mMyController.getHandbrake(), // mControlInputs.getHandbrakeKeyPressed(),
-				mMyController.getSteerLeft(), // mControlInputs.getSteerLeftKeyPressed(),
-				mMyController.getSteerRight(), // mControlInputs.getSteerRightKeyPressed(),
-				mMyController.getGearUp(), // mControlInputs.getGearUpKeyPressed(),
-				mMyController.getGearDown() /* mControlInputs.getGearDownKeyPressed() */);
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false);
+			mVehicleController.setCarGamepadInputs(
+				mMyController.getAccel(),
+				mMyController.getBrake(),
+				mMyController.getSteer(),
+				mMyController.getGearUp(),
+				mMyController.getGearDown(),
+				mMyController.getHandbrake());
 		}
 		else {
 			mVehicleController.setCarKeyboardInputs(
@@ -752,14 +759,14 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 				mControlInputs.getSteerRightKeyPressed(),
 				mControlInputs.getGearUpKeyPressed(),
 				mControlInputs.getGearDownKeyPressed());
+			mVehicleController.setCarGamepadInputs(
+				mControlInputs.getAccel(),
+				mControlInputs.getBrake(),
+				mControlInputs.getSteer(),
+				mControlInputs.getGearUp(),
+				mControlInputs.getGearDown(),
+				mControlInputs.getHandbrake());
 		}
-		mVehicleController.setCarGamepadInputs(
-			mControlInputs.getAccel(),
-			mControlInputs.getBrake(),
-			mControlInputs.getSteer(),
-			mControlInputs.getGearUp(),
-			mControlInputs.getGearDown(),
-			mControlInputs.getHandbrake());
 		break;
 	case ePLAYER_VEHICLE_TYPE_TANK4W:
 	case ePLAYER_VEHICLE_TYPE_TANK6W:

@@ -65,7 +65,7 @@ AutonomousController::~AutonomousController()
 }
 
 // update vehicle controls according to current situation
-void AutonomousController::Update(float dtime) {
+void AutonomousController::update(float dtime) {
 	
 	// pid controller to be implemented
 	PxTransform pose = m_vehicle->getRigidDynamicActor()->getGlobalPose();
@@ -76,16 +76,15 @@ void AutonomousController::Update(float dtime) {
 	m_tracks.emplace_back(dtime, pose.p, pose.q);
 	//DrawTrack(pose.p, pose.q);
 
-	accel = true;
-	brake = false;
+	accel = 1.0f;
+	brake = 0.0f;
 	handbrake = false;
-	steerLeft = false;
-	steerRight = false;
+	steer = 0.0f;
 	gearUp = false;
 	gearDown = false;
 }
 
-void AutonomousController::DrawTrack(PxScene* mScene) {
+void AutonomousController::drawTrack(PxScene* mScene) {
 	PxSceneReadLock scopedLock(*mScene);
 	const RendererColor colorPurple(255, 0, 255);
 

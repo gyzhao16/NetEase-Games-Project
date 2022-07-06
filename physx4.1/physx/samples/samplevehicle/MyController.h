@@ -38,11 +38,9 @@ public:
 	AutonomousController();
 	~AutonomousController();
 
-	void Init();
+	void update(float dtime);
 
-	void Update(float dtime);
-
-	void DrawTrack(PxScene* mScene);
+	void drawTrack(PxScene* mScene);
 	
 	std::vector<Track> getVehicleTrack() { return m_tracks; }
 
@@ -50,11 +48,10 @@ public:
 	bool isAutonomousModeOn() { return autonomousModeOn; }
 
 	// get mycontroller data
-	bool getAccel() { return accel; }
-	bool getBrake() { return brake; }
+	PxF32 getAccel() { return accel; }
+	PxF32 getBrake() { return brake; }
 	bool getHandbrake() { return handbrake; }
-	bool getSteerLeft() { return steerLeft; }
-	bool getSteerRight() { return steerRight; }
+	PxF32 getSteer() { return steer; }
 	bool getGearUp() { return gearUp; }
 	bool getGearDown() { return gearDown; }
 
@@ -66,12 +63,11 @@ private:
 	// Autonomous Mode
 	bool autonomousModeOn;
 
-	// simulate keyboard inputs
-	bool accel;
-	bool brake;
+	// simulate gamepad inputs
+	PxF32 accel;
+	PxF32 brake;
 	bool handbrake;
-	bool steerLeft;
-	bool steerRight;
+	PxF32 steer;
 	bool gearUp;
 	bool gearDown;
 
