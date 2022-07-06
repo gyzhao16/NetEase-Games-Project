@@ -7,6 +7,10 @@
 #include "vehicle/PxVehicleUtilControl.h"
 #include "RenderPhysX3Debug.h"
 #include "RendererColor.h"
+#include <ctime>
+#include <stdio.h>
+#include <float.h>
+#include <vector>
 
 using namespace physx;
 using namespace SampleRenderer;
@@ -41,6 +45,8 @@ public:
 	void update(float dtime);
 
 	void drawTrack(PxScene* mScene);
+
+	void drawPngFile(PxScene* mScene);
 	
 	std::vector<Track> getVehicleTrack() { return m_tracks; }
 
@@ -80,3 +86,7 @@ private:
 	PxVehicleWheels* m_vehicle;
 	RenderPhysX3Debug* m_renderer;
 };
+
+bool cmpX(Track& t1, Track& t2);
+bool cmpY(Track& t1, Track& t2);
+void svpng(FILE* fp, unsigned int w, unsigned int h, const unsigned char* img, int alpha);

@@ -1852,6 +1852,11 @@ void SampleVehicle::onDigitalInputEvent(const SampleFramework::InputEvent& ie, b
 			}
 		}
 		break;
+	case DRAW_PNG_FILE:
+		{
+			mMyController.drawPngFile(mScene);
+		}
+		break;
 	case VEH_SAVE_KBD:
 		{
 			if(val)
