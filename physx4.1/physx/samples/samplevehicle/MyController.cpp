@@ -32,7 +32,7 @@ public:
 	{
 		float e = Target - Current;
 		mIntegral += e * dt;
-		//physx::PxClamp(mIntegral, -10.0f, 10.0f);
+		mIntegral =  physx::PxClamp(mIntegral, -10.0f, 10.0f);
 		float output = mParam.kP * e + mParam.kI * mIntegral + mParam.kD * (e - mPrevError) / dt;
 		mPrevError = e;
 		return std::max(std::min(output, mUpper), mLower);
@@ -54,7 +54,7 @@ private:
 AutonomousController::AutonomousController()
 {
 	autonomousModeOn = true;
-	m_pid_accel = new PID_Controller(0.1f, 0.1f, 0.1f);
+	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f);
 	m_pid_steer = new PID_Controller(0.1f, 0.1f, 0.1f);
 	m_vehicle = nullptr;
 	m_renderer = nullptr;
@@ -78,7 +78,7 @@ void AutonomousController::update(float dtime) {
 	m_tracks.emplace_back(dtime, pose.p, pose.q);
 	//DrawTrack(pose.p, pose.q);
 
-	float input = m_pid_accel->Compute(dtime, currentSpeed, 10.0f);
+	float input = m_pid_accel->Compute(dtime, currentSpeed, 30.0f);
 
 	accel = physx::PxClamp(input, 0.0f, 1.0f);
 	brake = physx::PxClamp(-input, 0.0f, 1.0f);
