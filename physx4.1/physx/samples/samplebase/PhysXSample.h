@@ -318,7 +318,7 @@ private:
 					PxReal									mDebugRenderScale;
 protected:
 					bool									mWaitForResults;
-private:
+protected:
 					PxToolkit::FPS							mFPS;
 
 					CameraController*						mSavedCameraController;

@@ -102,6 +102,23 @@ void Picking::computeCameraRay(PxVec3& orig, PxVec3& dir, PxI32 x, PxI32 y) cons
 	dir = rayDir;
 }
 
+
+bool Picking::raycast(int x, int y, PxVec3& p)
+{
+	PxScene& scene = mFrame.getActiveScene();
+
+	PxVec3 rayOrig, rayDir;
+	computeCameraRay(rayOrig, rayDir, x, y);
+
+	PxRaycastBuffer hit1;
+	if (scene.raycast(rayOrig, rayDir, PX_MAX_F32, hit1, PxHitFlag::ePOSITION))
+	{
+		p = hit1.block.position;
+		return true;
+	}
+	return false;
+}
+
 bool Picking::pick(int x, int y)
 {
 	PxScene& scene = mFrame.getActiveScene();
@@ -176,6 +193,7 @@ PxActor* Picking::letGo()
 }
 
 //----------------------------------------------------------------------------//
+
 
 void Picking::grabActor(const PxVec3& worldImpact, const PxVec3& rayOrigin)
 {

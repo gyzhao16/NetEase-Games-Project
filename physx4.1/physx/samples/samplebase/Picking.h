@@ -74,6 +74,7 @@ namespace physx {
 		PX_FORCE_INLINE	void						lazyPick() { pick(mMouseScreenX, mMouseScreenY); }
 						bool						isPicked() const;
 						bool						pick(int x, int y);
+						bool						raycast(int x, int y, PxVec3 &p);
 						void						moveCursor(PxI32 x, PxI32 y);
 //						void						moveCursor(PxReal deltaDepth);
 

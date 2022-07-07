@@ -190,7 +190,7 @@ private:
 	void							updateCameraController(const PxF32 dtime, PxScene& scene);
 	void							updateVehicleController(const PxF32 dtime);
 	void							updateVehicleManager(const PxF32 dtime, const PxVec3& gravity);
-
+	void							onPointerInputEvent(const SampleFramework::InputEvent& ie, physx::PxU32 x, physx::PxU32 y, physx::PxReal dx, physx::PxReal dy, bool val);
 	void							resetFocusVehicleAtWaypoint();
 	PxRigidDynamic*					getFocusVehicleRigidDynamicActor();
 	bool							getFocusVehicleUsesAutoGears();

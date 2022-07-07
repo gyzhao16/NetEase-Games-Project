@@ -90,7 +90,7 @@ void AutonomousController::update(float dtime) {
 		float dist = (m_routes[0] - pose.p).magnitude();
 		if (dist > 1.0f)
 		{
-			float input = m_pid_accel->Compute(dtime, currentSpeed, 30.0f);
+			float input = m_pid_accel->Compute(dtime, currentSpeed, 60.0f);
 			accel = physx::PxClamp(input, 0.0f, 1.0f);
 			brake = physx::PxClamp(-input, 0.0f, 1.0f);
 
