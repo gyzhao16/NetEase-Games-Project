@@ -44,6 +44,8 @@ public:
 
 	void update(float dtime);
 
+	void drawTarget(PxScene* mScene);
+
 	void drawTrack(PxScene* mScene);
 
 	void drawPngFile(PxScene* mScene);

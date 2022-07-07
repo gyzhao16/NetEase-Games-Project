@@ -105,6 +105,20 @@ void AutonomousController::update(float dtime) {
 			steer = input;
 		}
 	}
+
+	//setCurrentSpeed(3.6f * m_vehicle->computeForwardSpeed());
+}
+
+void AutonomousController::drawTarget(PxScene* mScene) {
+	
+	PxSceneReadLock scopedLock(*mScene);
+	const RendererColor colorYellow(255, 255, 0);
+
+	if (!m_routes.empty()) {
+		for (auto ele : m_routes) {
+			m_renderer->addLine(ele, ele + PxVec3(0, 5, 0), colorYellow);
+		}
+	}
 }
 
 void AutonomousController::drawTrack(PxScene* mScene) {

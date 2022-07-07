@@ -712,12 +712,13 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 	mWayPoints.getNextWayPointsAndLineDirs(numPoints,v[0],v[1],v[2],w[0],w[1],w[2]);
 	for(PxU32 i=0;i<numPoints;i++)
 	{
-		getDebugRenderer()->addLine(v[i],v[i]+PxVec3(0,5,0),colors[i]);
-		getDebugRenderer()->addLine(v[i]-w[i],v[i]+w[i],colors[i]);
+		//getDebugRenderer()->addLine(v[i],v[i]+PxVec3(0,5,0),colors[i]);
+		//getDebugRenderer()->addLine(v[i]-w[i],v[i]+w[i],colors[i]);
 	}
 
 	// draw track
 	mMyController.setRenderer(getDebugRenderer());
+	mMyController.drawTarget(mScene);
 	mMyController.drawTrack(mScene);
 }
 
