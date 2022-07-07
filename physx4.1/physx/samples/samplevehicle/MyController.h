@@ -65,8 +65,9 @@ public:
 
 	void setVehicle(PxVehicleWheels* vehicle) { m_vehicle = vehicle; }
 	void setRenderer(RenderPhysX3Debug* renderer) { m_renderer = renderer; }
-	void setPath(const std::vector<PxVec3> _paths) { m_routes = _paths; }  
+	void setPath(const std::vector<PxVec3> _paths) { m_routes = _paths; } 
 	void setTarget(PxVec3 target);
+	void addTarget(PxVec3 target) { m_routes.push_back(target); }
 
 private:
 	// Autonomous Mode

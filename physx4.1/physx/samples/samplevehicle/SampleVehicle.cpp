@@ -45,6 +45,7 @@
 #include <SampleUserInputIds.h>
 #include <SampleUserInputDefines.h>
 #include "PxTkFile.h"
+#include "Picking.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable:4305)
@@ -1199,7 +1200,6 @@ void SampleVehicle::createVehicles()
 			{
 				PxVehicleWheels* my_vehicle = mVehicleManager.getVehicle(mPlayerVehicle);
 				mMyController.setVehicle(my_vehicle);
-				mMyController.setTarget(PxVec3(-154.0f + 40.0f, 8.0f, 87.0f + 40.0f));
 			}
 
 			gNumVehicleAdded++;
@@ -2319,4 +2319,19 @@ bool SampleVehicle::getFocusVehicleUsesAutoGears()
 	}
 
 	return driveDynData->getUseAutoGears();
+}
+
+void SampleVehicle::onPointerInputEvent(const SampleFramework::InputEvent& ie, physx::PxU32 x, physx::PxU32 y, physx::PxReal dx, physx::PxReal dy, bool val)
+{
+	if (ie.m_Id == CAMERA_MOVE_BUTTON)
+	{
+		PxVec3 p;
+		if (mPicking->raycast(x, y, p))
+		{
+			mMyController.addTarget(p);
+			return;
+		}
+	}
+
+	return;
 }
