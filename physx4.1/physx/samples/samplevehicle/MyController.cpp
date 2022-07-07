@@ -59,7 +59,7 @@ AutonomousController::AutonomousController()
 {
 	autonomousModeOn = true;
 	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f, -10.0f, 10.0f);
-	m_pid_steer = new PID_Controller(0.25f, 0.15f, 0.05f, -1.0f, 1.0f);
+	m_pid_steer = new PID_Controller(1.0f, 0.15f, 0.1f, -1.0f, 1.0f);
 	m_vehicle = nullptr;
 	m_renderer = nullptr;
 	currentSpeed = 0.0f;
@@ -105,8 +105,8 @@ void AutonomousController::update(float dtime) {
 			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
 			float dp = forward.dot(target);
 
-			input = m_pid_steer->Compute(dtime, steer_dir * dp, 0.0f);
-			steer = input;
+			input = - PxAbs(m_pid_steer->Compute(dtime, dp, 1.0f));
+			steer = steer_dir * input;
 		}
 		else {
 			m_routes.erase(m_routes.begin());
