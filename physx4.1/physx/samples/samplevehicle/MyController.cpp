@@ -133,8 +133,8 @@ void AutonomousController::drawPngFile(PxScene* mScene) {
 	std::vector<Track> tmp_tracks = m_tracks;
 	sort(tmp_tracks.begin(), tmp_tracks.end(), cmpX);
 	float x_min = tmp_tracks[0].p.x, x_max = tmp_tracks[tmp_tracks.size() - 1].p.x, x_interval = x_max - x_min;
-	sort(tmp_tracks.begin(), tmp_tracks.end(), cmpY);
-	float y_min = tmp_tracks[0].p.y, y_max = tmp_tracks[tmp_tracks.size() - 1].p.y, y_interval = y_max - y_min;
+	sort(tmp_tracks.begin(), tmp_tracks.end(), cmpZ);
+	float z_min = tmp_tracks[0].p.z, z_max = tmp_tracks[tmp_tracks.size() - 1].p.z, z_interval = z_max - z_min;
 
 	unsigned char rgb[256 * 256 * 3], *p = rgb;
 	
@@ -147,10 +147,10 @@ void AutonomousController::drawPngFile(PxScene* mScene) {
 	}
 	for (auto ele : m_tracks) {
 		int x = (ele.p.x - x_min) / x_interval * 255.0f + 0.5f;
-		int y = (ele.p.y - y_min) / y_interval * 255.0f + 0.5f;
-		rgb[(y * 256 + x) * 3] = 255;
-		rgb[(y * 256 + x) * 3 + 1] = 255;
-		rgb[(y * 256 + x) * 3 + 2] = 255;
+		int z = (ele.p.z - z_min) / z_interval * 255.0f + 0.5f;
+		rgb[(z * 256 + x) * 3] = 255;
+		rgb[(z * 256 + x) * 3 + 1] = 255;
+		rgb[(z * 256 + x) * 3 + 2] = 255;
 	}
 	
 	svpng(fp, 256, 256, rgb, 0);
@@ -167,8 +167,8 @@ bool cmpX(Track& t1, Track& t2) {
 	return t1.p.x < t2.p.x;
 }
 
-bool cmpY(Track& t1, Track& t2) {
-	return t1.p.y < t2.p.y;
+bool cmpZ(Track& t1, Track& t2) {
+	return t1.p.z < t2.p.z;
 }
 
 void svpng(FILE* fp, unsigned int w, unsigned int h, const unsigned char* img, int alpha) {

@@ -94,5 +94,5 @@ private:
 };
 
 bool cmpX(Track& t1, Track& t2);
-bool cmpY(Track& t1, Track& t2);
+bool cmpZ(Track& t1, Track& t2);
 void svpng(FILE* fp, unsigned int w, unsigned int h, const unsigned char* img, int alpha);
