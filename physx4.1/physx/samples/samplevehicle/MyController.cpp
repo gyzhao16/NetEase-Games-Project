@@ -10,11 +10,13 @@ struct PID_Calibration
 class PID_Controller
 {
 public:
-	PID_Controller(float _kP, float _kI, float _kD)
+	PID_Controller(float _kP, float _kI, float _kD, float low, float high)
 	{
 		mParam.kP = _kP;
 		mParam.kI = _kI;
 		mParam.kD = _kD;
+		lowIntegral = low;
+		highIntegral = high;
 		Reset();
 	}
 
@@ -32,7 +34,7 @@ public:
 	{
 		float e = Target - Current;
 		mIntegral += e * dt;
-		mIntegral =  physx::PxClamp(mIntegral, -10.0f, 10.0f);
+		mIntegral =  physx::PxClamp(mIntegral, lowIntegral, highIntegral);
 		float output = mParam.kP * e + mParam.kI * mIntegral + mParam.kD * (e - mPrevError) / dt;
 		mPrevError = e;
 		return std::max(std::min(output, mUpper), mLower);
@@ -49,13 +51,15 @@ private:
 	float			mPrevError;
 	float			mIntegral;
 	float			mLower, mUpper;
+	float           lowIntegral;
+	float           highIntegral;
 };
 
 AutonomousController::AutonomousController()
 {
 	autonomousModeOn = true;
-	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f);
-	m_pid_steer = new PID_Controller(0.1f, 0.1f, 0.1f);
+	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f, -10.0f, 10.0f);
+	m_pid_steer = new PID_Controller(0.25f, 0.15f, 0.05f, -1.0f, 1.0f);
 	m_vehicle = nullptr;
 	m_renderer = nullptr;
 	currentSpeed = 0.0f;
@@ -88,7 +92,7 @@ void AutonomousController::update(float dtime) {
 	if (!m_routes.empty())
 	{
 		float dist = (m_routes[0] - pose.p).magnitude();
-		if (dist > 1.0f)
+		if (dist > 3.0f)
 		{
 			float input = m_pid_accel->Compute(dtime, currentSpeed, 60.0f);
 			accel = physx::PxClamp(input, 0.0f, 1.0f);
@@ -103,6 +107,9 @@ void AutonomousController::update(float dtime) {
 
 			input = m_pid_steer->Compute(dtime, steer_dir * dp, 0.0f);
 			steer = input;
+		}
+		else {
+			m_routes.erase(m_routes.begin());
 		}
 	}
 
