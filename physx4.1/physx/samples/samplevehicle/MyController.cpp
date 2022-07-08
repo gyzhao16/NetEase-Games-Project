@@ -149,8 +149,10 @@ void AutonomousController::update(float dtime) {
 	{
 		m_tracks.erase(m_tracks.begin());
 	}
-	m_tracks.emplace_back(dtime, pose.p, pose.q);
-	//DrawTrack(pose.p, pose.q);
+	if (m_tracks.empty() || (m_tracks[m_tracks.size() - 1].p - pose.p).magnitudeSquared() > 0.01f)
+	{
+		m_tracks.emplace_back(dtime, pose.p, pose.q);
+	}
 
 	// pid controller to be implemented
 	accel = 0.0f;
@@ -179,9 +181,14 @@ void AutonomousController::update(float dtime) {
 			input = - PxAbs(m_pid_steer->Compute(dtime, dp, 1.0f));
 			steer = steer_dir * input;
 		}
-		else {
+		else
+		{
 			m_targets.erase(m_targets.begin());
 		}
+	}
+	else
+	{
+		brake = 1.0f;
 	}
 
 	//setCurrentSpeed(3.6f * m_vehicle->computeForwardSpeed());
