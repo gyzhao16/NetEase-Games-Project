@@ -731,7 +731,11 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
 		// update mycontroller and vehiclecontroller accordingly
-		mMyController.update(dtime);
+		
+		{
+			PxSceneWriteLock writeLock(*mScene);
+			mMyController.update(dtime);
+		}
 		if (mMyController.isAutonomousModeOn()) {
 			mVehicleController.setCarKeyboardInputs(
 				false,
@@ -2324,7 +2328,7 @@ bool SampleVehicle::getFocusVehicleUsesAutoGears()
 
 void SampleVehicle::onPointerInputEvent(const SampleFramework::InputEvent& ie, physx::PxU32 x, physx::PxU32 y, physx::PxReal dx, physx::PxReal dy, bool val)
 {
-	if (ie.m_Id == CAMERA_MOVE_BUTTON)
+	if (ie.m_Id == CAMERA_MOVE_BUTTON && val)
 	{
 		PxVec3 p;
 		if (mPicking->raycast(x, y, p))
