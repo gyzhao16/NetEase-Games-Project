@@ -40,7 +40,7 @@ enum ControllerMode
 {
 	MANUAL_MODE = 0,
 	TARGET_MODE,
-	REVERSE_MODE,
+	BACKUP_MODE,
 	TRAJECTORY_MODE,
 };
 
@@ -97,7 +97,7 @@ private:
 
 	void updateManualMode(float dtime);
 	void updateTargetMode(float dtime);
-	void updateReverseMode(float dtime);
+	void updateBackupMode(float dtime);
 	void updateTrajectoryMode(float dtime);
 
 	// Autonomous Mode
