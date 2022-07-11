@@ -6,7 +6,7 @@ InputMapping
 		}
 	UserInputCS
 		{
-		7414686;
+		7414701;
 		}
 	InputEventCS
 		{
@@ -314,7 +314,7 @@ InputMapping
 		}
 	Map
 		{
-		KEY_NUMPAD1;
+		KEY_F1;
 		AUTONOMOUS_MODE_KBD;
 		}
 	Map

@@ -36,6 +36,14 @@ struct Track
 	PxQuat q;
 };
 
+enum ControllerMode
+{
+	MANUAL_MODE = 0,
+	TARGET_MODE,
+	REVERSE_MODE,
+	TRAJECTORY_MODE,
+};
+
 class AutonomousController {
 
 public:
@@ -44,16 +52,17 @@ public:
 
 	void update(float dtime);
 
+
 	void drawTarget(PxScene* mScene);
 
 	void drawTrack(PxScene* mScene);
 
 	void drawPngFile(PxScene* mScene);
 	
-	std::vector<Track> getVehicleTrack() { return m_tracks; }
+	ControllerMode		getControllerMode() const { return controllerMode; }
+	void				setControllerMode(ControllerMode mode) { controllerMode = mode; }
 
-	void reverseMode() { autonomousModeOn = !autonomousModeOn; }
-	bool isAutonomousModeOn() { return autonomousModeOn; }
+	std::vector<Track> getVehicleTrack() { return m_tracks; }
 
 	// get gamepad input data
 	PxF32 getAccel() { return accel; }
@@ -85,8 +94,14 @@ public:
 	void backup();
 
 private:
+
+	void updateManualMode(float dtime);
+	void updateTargetMode(float dtime);
+	void updateReverseMode(float dtime);
+	void updateTrajectoryMode(float dtime);
+
 	// Autonomous Mode
-	bool autonomousModeOn;
+	ControllerMode controllerMode;
 
 	// simulate gamepad inputs
 	PxF32 accel;

@@ -736,7 +736,7 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 			PxSceneWriteLock writeLock(*mScene);
 			mMyController.update(dtime);
 		}
-		if (mMyController.isAutonomousModeOn()) {
+		if (mMyController.getControllerMode() != ControllerMode::MANUAL_MODE) {
 			mVehicleController.setCarKeyboardInputs(
 				mMyController.getAccelPressed(),
 				mMyController.getBrakePressed(),
@@ -1835,7 +1835,10 @@ void SampleVehicle::collectInputEvents(std::vector<const SampleFramework::InputE
 	DIGITAL_INPUT_EVENT_DEF(CAMERA_ROTATE_DOWN_KBD,											WKEY_NUMPAD2,				OSXKEY_NUMPAD2,		LINUXKEY_NUMPAD2		);
 																							
 	//Autonomous Mode Switch
-	DIGITAL_INPUT_EVENT_DEF(AUTONOMOUS_MODE_KBD,                                            WKEY_NUMPAD1,               OSXKEY_NUMPAD1,     LINUXKEY_NUMPAD1        );
+	DIGITAL_INPUT_EVENT_DEF(AUTONOMOUS_MODE_KBD,                                            WKEY_F1,		            OSXKEY_F1,			LINUXKEY_F1				);
+
+
+
 	//Record Track
 	DIGITAL_INPUT_EVENT_DEF(DRAW_PNG_FILE,                                                  WKEY_NUMPAD3,               OSXKEY_NUMPAD3,     LINUXKEY_NUMPAD3        );
 
@@ -1859,7 +1862,7 @@ void SampleVehicle::onDigitalInputEvent(const SampleFramework::InputEvent& ie, b
 	case AUTONOMOUS_MODE_KBD:
 		{
 			if (val) {
-				mMyController.reverseMode();
+				mMyController.setControllerMode(ControllerMode::MANUAL_MODE);
 			}
 		}
 		break;

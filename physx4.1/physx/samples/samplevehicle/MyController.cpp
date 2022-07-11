@@ -128,7 +128,7 @@ std::vector<PxVec3> CatmullRom_Smoothing(const std::vector<PxVec3>& points, floa
 
 AutonomousController::AutonomousController()
 {
-	autonomousModeOn = true;
+	controllerMode = ControllerMode::TARGET_MODE;
 	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f, -10.0f, 10.0f, -1.0f, 1.0f);
 	m_pid_steer = new PID_Controller(1.0f, 0.15f, 0.1f, -1.0f, 1.0f, -1.0f, 1.0f);
 	m_vehicle = nullptr;
