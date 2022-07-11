@@ -154,7 +154,16 @@ void AutonomousController::update(float dtime) {
 		m_tracks.emplace_back(dtime, pose.p, pose.q);
 	}
 
-	// pid controller to be implemented
+	// set keyboard iputs
+	accelPressed = false;
+	brakePressed = false;
+	handbrakePressed = false;
+	steerleftPressed = false;
+	steerrightPressed = false;
+	gearUpPressed = false;
+	gearDownPressed = false;
+
+	// set gamepad inputs
 	accel = 0.0f;
 	brake = 0.0f;
 	handbrake = false;
@@ -162,15 +171,13 @@ void AutonomousController::update(float dtime) {
 	gearUp = false;
 	gearDown = false;
 
+	m_vehicleController->setForwardMode((PxVehicleDrive4W*)m_vehicle);
+
 	if (!m_targets.empty())
 	{
 		float dist = (m_targets[0] - pose.p).magnitude();
 		if (dist > 3.0f)
 		{
-			float input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
-			accel = physx::PxClamp(input, 0.0f, 1.0f);
-			brake = physx::PxClamp(-input, 0.0f, 1.0f);
-
 			PxVec3 forward = pose.q.rotate(PxVec3(0, 0, 1));
 			PxVec3 up = pose.q.rotate(PxVec3(0, 1, 0));
 			PxVec3 target = (m_targets[0] - pose.p).getNormalized();
@@ -178,8 +185,34 @@ void AutonomousController::update(float dtime) {
 			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
 			float dp = forward.dot(target);
 
-			input = - PxAbs(m_pid_steer->Compute(dtime, dp, 1.0f));
-			steer = steer_dir * input;
+			if (numFrames > 0) {
+				backup();
+			}
+			else {
+				if (dp > 0.0f) { // target is ahead
+
+					// set accel & brake
+					float input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
+					accel = physx::PxClamp(input, 0.0f, 1.0f);
+					brake = physx::PxClamp(-input, 0.0f, 1.0f);
+
+					// set steer
+					input = -PxAbs(m_pid_steer->Compute(dtime, dp, 1.0f));
+					steer = steer_dir * input;
+				}
+				else { // target is behind, perform a backup
+					numFrames = 30;
+
+					if (steer_dir < 0.0f) {
+						backupSteerleft = true;
+						backupSteerright = false;
+					}
+					else {
+						backupSteerleft = false;
+						backupSteerright = true;
+					}
+				}
+			}
 		}
 		else
 		{
@@ -191,7 +224,19 @@ void AutonomousController::update(float dtime) {
 		brake = 1.0f;
 	}
 
-	//setCurrentSpeed(3.6f * m_vehicle->computeForwardSpeed());
+	setCurrentSpeed(3.6f * m_vehicle->computeForwardSpeed());
+}
+
+void AutonomousController::backup() {
+	if (currentSpeed > 0.5f && !m_vehicleController->isReverseMode()) {
+		brake = 1.0f;
+	}
+	else {
+		numFrames--;
+		m_vehicleController->setReverseMode((PxVehicleDrive4W*)m_vehicle);
+		brake = 1.0f;
+		steer = backupSteerleft == true ? -0.5f : 0.5f;
+	}
 }
 
 void AutonomousController::drawTarget(PxScene* mScene) {

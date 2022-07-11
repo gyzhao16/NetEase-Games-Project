@@ -107,6 +107,17 @@ public:
 
 	void clear();
 
+	// reverse reverse-mode
+	void setReverseMode(PxVehicleDrive4W* vehDrive4W) {
+		mInReverseMode = true;
+		vehDrive4W->mDriveDynData.forceGearChange(PxVehicleGearsData::eREVERSE);
+	}
+	void setForwardMode(PxVehicleDrive4W* vehDrive4W) {
+		mInReverseMode = false;
+		vehDrive4W->mDriveDynData.forceGearChange(PxVehicleGearsData::eFIRST);
+	}
+	bool isReverseMode() { return mInReverseMode; }
+
 private:
 
 	//Raw driving inputs - keys (car + tank)
@@ -181,6 +192,8 @@ private:
 	//Auto-reverse mode.
 	bool			mIsMovingForwardSlowly;
 	bool			mInReverseMode;
+
+
 
 	//Update 
 	void processRawInputs(const PxF32 timestep, const bool useAutoGears, PxVehicleDrive4WRawInputData& rawInputData);

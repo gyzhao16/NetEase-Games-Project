@@ -55,7 +55,7 @@ public:
 	void reverseMode() { autonomousModeOn = !autonomousModeOn; }
 	bool isAutonomousModeOn() { return autonomousModeOn; }
 
-	// get mycontroller data
+	// get gamepad input data
 	PxF32 getAccel() { return accel; }
 	PxF32 getBrake() { return brake; }
 	bool getHandbrake() { return handbrake; }
@@ -63,13 +63,26 @@ public:
 	bool getGearUp() { return gearUp; }
 	bool getGearDown() { return gearDown; }
 
+	// get keyboard input data
+	bool getAccelPressed() { return accelPressed; }
+	bool getBrakePressed() { return brakePressed; }
+	bool getHandbrakePressed() { return handbrakePressed; }
+	bool getSteerleftPressed() { return steerleftPressed; }
+	bool getSteerrightPressed() { return steerrightPressed; }
+	bool getGearUpPressed() { return gearUpPressed; }
+	bool getGearDownPressed() { return gearDownPressed; }
+
 	void setCurrentSpeed(PxF32 speed) { currentSpeed = speed * 3.6f; }
 
 	void setVehicle(PxVehicleWheels* vehicle) { m_vehicle = vehicle; }
 	void setRenderer(RenderPhysX3Debug* renderer) { m_renderer = renderer; }
+	void setVehicleController(SampleVehicle_VehicleController* vehicleController) { m_vehicleController = vehicleController; }
+
 	void setPath(const std::vector<PxVec3> _paths) { m_targets = _paths; } 
 	void setTarget(PxVec3 target);
 	void addTarget(PxVec3 target);
+
+	void backup();
 
 private:
 	// Autonomous Mode
@@ -83,6 +96,22 @@ private:
 	bool gearUp;
 	bool gearDown;
 
+	// simulate keyboard inputs
+	bool accelPressed;
+	bool brakePressed;
+	bool handbrakePressed;
+	bool steerleftPressed;
+	bool steerrightPressed;
+	bool gearUpPressed;
+	bool gearDownPressed;
+
+	// frames
+	int numFrames;
+
+	// backup steer
+	bool backupSteerleft;
+	bool backupSteerright;
+
 	// current speed in kmh
 	PxF32 currentSpeed;
 
@@ -95,6 +124,8 @@ private:
 
 	PxVehicleWheels* m_vehicle;
 	RenderPhysX3Debug* m_renderer;
+
+	SampleVehicle_VehicleController* m_vehicleController;
 };
 
 bool cmpX(Track& t1, Track& t2);

@@ -731,20 +731,20 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	case ePLAYER_VEHICLE_TYPE_VEHICLE4W:
 	case ePLAYER_VEHICLE_TYPE_VEHICLE6W:
 		// update mycontroller and vehiclecontroller accordingly
-		
+		mMyController.setVehicleController(&mVehicleController);
 		{
 			PxSceneWriteLock writeLock(*mScene);
 			mMyController.update(dtime);
 		}
 		if (mMyController.isAutonomousModeOn()) {
 			mVehicleController.setCarKeyboardInputs(
-				false,
-				false,
-				false,
-				false,
-				false,
-				false,
-				false);
+				mMyController.getAccelPressed(),
+				mMyController.getBrakePressed(),
+				mMyController.getHandbrakePressed(),
+				mMyController.getSteerleftPressed(),
+				mMyController.getSteerrightPressed(),
+				mMyController.getGearUpPressed(),
+				mMyController.getGearDownPressed());
 			mVehicleController.setCarGamepadInputs(
 				mMyController.getAccel(),
 				mMyController.getBrake(),
