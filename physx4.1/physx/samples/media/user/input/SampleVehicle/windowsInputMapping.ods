@@ -6,11 +6,11 @@ InputMapping
 		}
 	UserInputCS
 		{
-		7414701;
+		7414609;
 		}
 	InputEventCS
 		{
-		4329036;
+		4263468;
 		}
 	Map
 		{
@@ -71,11 +71,6 @@ InputMapping
 		{
 		KEY_F;
 		SHOW_DESCRIPTION;
-		}
-	Map
-		{
-		KEY_F1;
-		SHOW_EXTENDED_HELP;
 		}
 	Map
 		{
