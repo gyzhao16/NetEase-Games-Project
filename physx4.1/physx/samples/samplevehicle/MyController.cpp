@@ -10,6 +10,7 @@ struct PID_Calibration
 		LowValue = -FLT_MAX;
 		HighValue = FLT_MAX;
 	}
+
 	float kP;
 	float kI;
 	float kD;
@@ -23,6 +24,7 @@ struct PID_Calibration
 class PID_Controller
 {
 public:
+
 	PID_Controller(const PID_Calibration& param)
 	{
 		SetCalibration(param);
@@ -73,6 +75,7 @@ public:
 	}
 
 private:
+
 	PID_Calibration mParam;
 	float			mPrevError;
 	float			mIntegral;
@@ -133,7 +136,12 @@ AutonomousController::AutonomousController()
 	m_pid_steer = new PID_Controller(1.0f, 0.15f, 0.1f, -1.0f, 1.0f, -1.0f, 1.0f);
 	m_vehicle = nullptr;
 	m_renderer = nullptr;
+	m_vehicleController = nullptr;
 	currentSpeed = 0.0f;
+
+	numFrames = 0;
+	backupSteerleft = false;
+	backupSteerright = false;
 }
 
 AutonomousController::~AutonomousController()
@@ -142,7 +150,7 @@ AutonomousController::~AutonomousController()
 }
 
 // update vehicle controls according to current situation
-void AutonomousController::update(float dtime) {
+void AutonomousController::update(PxF32 dtime) {
 	const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
 	PxTransform pose = actor->getGlobalPose();
 	if (m_tracks.size() > 1000)
@@ -171,6 +179,43 @@ void AutonomousController::update(float dtime) {
 	gearUp = false;
 	gearDown = false;
 
+	switch (controllerMode)
+	{
+	case ControllerMode::MANUAL_MODE:
+		{
+			updateManualMode(dtime);
+		}
+		break;
+	case ControllerMode::TARGET_MODE:
+		{
+			updateTargetMode(dtime);
+		}
+		break;
+	case ControllerMode::BACKUP_MODE:
+		{
+			updateBackupMode(dtime);
+		}
+		break;
+	case ControllerMode::TRAJECTORY_MODE:
+		{
+			updateTrajectoryMode(dtime);
+		}
+		break;
+	default:
+		break;
+	}
+
+	setCurrentSpeed(3.6f * m_vehicle->computeForwardSpeed());
+}
+
+void AutonomousController::updateManualMode(PxF32 dtime) {
+
+}
+
+void AutonomousController::updateTargetMode(PxF32 dtime) {
+	const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
+	PxTransform pose = actor->getGlobalPose();
+
 	m_vehicleController->setForwardMode((PxVehicleDrive4W*)m_vehicle);
 
 	if (!m_targets.empty())
@@ -185,10 +230,10 @@ void AutonomousController::update(float dtime) {
 			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
 			float dp = forward.dot(target);
 
-			if (numFrames > 0) {
-				backup();
-			}
-			else {
+			//if (numFrames > 0) { // need to perform a backup to reach next target
+			//	updateBackupMode(dtime);
+			//}
+			//else {
 				if (dp > 0.0f) { // target is ahead
 
 					// set accel & brake
@@ -201,7 +246,8 @@ void AutonomousController::update(float dtime) {
 					steer = steer_dir * input;
 				}
 				else { // target is behind, perform a backup
-					numFrames = 30;
+					setControllerMode(ControllerMode::BACKUP_MODE);
+					numFrames = 120;
 
 					if (steer_dir < 0.0f) {
 						backupSteerleft = true;
@@ -212,7 +258,7 @@ void AutonomousController::update(float dtime) {
 						backupSteerright = true;
 					}
 				}
-			}
+			//}
 		}
 		else
 		{
@@ -223,8 +269,37 @@ void AutonomousController::update(float dtime) {
 	{
 		brake = 1.0f;
 	}
+}
 
-	setCurrentSpeed(3.6f * m_vehicle->computeForwardSpeed());
+void AutonomousController::updateBackupMode(PxF32 dtime) {
+	if (numFrames > 0) {
+		if (currentSpeed > 0.1f && !m_vehicleController->isReverseMode()) {
+			brake = 1.0f;
+		}
+		else {
+			numFrames--;
+			m_vehicleController->setReverseMode((PxVehicleDrive4W*)m_vehicle);
+			if (numFrames > 40) {
+				brake = 0.5f;
+			}
+			/*else {
+				accel = 0.5f;
+			}*/
+			if (backupSteerleft == true && backupSteerright == false) {
+				steer = -0.5f;
+			}
+			else if (backupSteerleft == false && backupSteerright == true) {
+				steer = 0.5f;
+			}
+		}
+	}
+	else {
+		setControllerMode(ControllerMode::TARGET_MODE);
+	}
+}
+
+void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
+
 }
 
 void AutonomousController::backup() {
@@ -240,7 +315,6 @@ void AutonomousController::backup() {
 }
 
 void AutonomousController::drawTarget(PxScene* mScene) {
-	
 	PxSceneReadLock scopedLock(*mScene);
 	const RendererColor colorYellow(255, 255, 0);
 
@@ -259,7 +333,6 @@ void AutonomousController::drawTarget(PxScene* mScene) {
 }
 
 void AutonomousController::drawTrack(PxScene* mScene) {
-	
 	PxSceneReadLock scopedLock(*mScene);
 	const RendererColor colorPurple(255, 0, 255);
 
@@ -274,7 +347,6 @@ void AutonomousController::drawTrack(PxScene* mScene) {
 }
 
 void AutonomousController::drawPngFile(PxScene* mScene) {
-
 	PxSceneReadLock scopedLock(*mScene);
 
 	std::time_t currentTime = std::time(0);

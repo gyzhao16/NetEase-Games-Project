@@ -47,11 +47,11 @@ enum ControllerMode
 class AutonomousController {
 
 public:
+
 	AutonomousController();
 	~AutonomousController();
 
-	void update(float dtime);
-
+	void update(PxF32 dtime);
 
 	void drawTarget(PxScene* mScene);
 
@@ -65,21 +65,21 @@ public:
 	std::vector<Track> getVehicleTrack() { return m_tracks; }
 
 	// get gamepad input data
-	PxF32 getAccel() { return accel; }
-	PxF32 getBrake() { return brake; }
-	bool getHandbrake() { return handbrake; }
-	PxF32 getSteer() { return steer; }
-	bool getGearUp() { return gearUp; }
-	bool getGearDown() { return gearDown; }
+	PxF32 getAccel()     { return accel; }
+	PxF32 getBrake()     { return brake; }
+	bool  getHandbrake() { return handbrake; }
+	PxF32 getSteer()     { return steer; }
+	bool  getGearUp()    { return gearUp; }
+	bool  getGearDown()  { return gearDown; }
 
 	// get keyboard input data
-	bool getAccelPressed() { return accelPressed; }
-	bool getBrakePressed() { return brakePressed; }
-	bool getHandbrakePressed() { return handbrakePressed; }
-	bool getSteerleftPressed() { return steerleftPressed; }
+	bool getAccelPressed()      { return accelPressed; }
+	bool getBrakePressed()      { return brakePressed; }
+	bool getHandbrakePressed()  { return handbrakePressed; }
+	bool getSteerleftPressed()  { return steerleftPressed; }
 	bool getSteerrightPressed() { return steerrightPressed; }
-	bool getGearUpPressed() { return gearUpPressed; }
-	bool getGearDownPressed() { return gearDownPressed; }
+	bool getGearUpPressed()     { return gearUpPressed; }
+	bool getGearDownPressed()   { return gearDownPressed; }
 
 	void setCurrentSpeed(PxF32 speed) { currentSpeed = speed * 3.6f; }
 
@@ -87,7 +87,7 @@ public:
 	void setRenderer(RenderPhysX3Debug* renderer) { m_renderer = renderer; }
 	void setVehicleController(SampleVehicle_VehicleController* vehicleController) { m_vehicleController = vehicleController; }
 
-	void setPath(const std::vector<PxVec3> _paths) { m_targets = _paths; } 
+	void setPath(const std::vector<PxVec3> _paths) { m_targets = _paths; }
 	void setTarget(PxVec3 target);
 	void addTarget(PxVec3 target);
 
@@ -95,21 +95,21 @@ public:
 
 private:
 
-	void updateManualMode(float dtime);
-	void updateTargetMode(float dtime);
-	void updateBackupMode(float dtime);
-	void updateTrajectoryMode(float dtime);
+	void updateManualMode(PxF32 dtime);
+	void updateTargetMode(PxF32 dtime);
+	void updateBackupMode(PxF32 dtime);
+	void updateTrajectoryMode(PxF32 dtime);
 
-	// Autonomous Mode
+	// drive mode
 	ControllerMode controllerMode;
 
 	// simulate gamepad inputs
 	PxF32 accel;
 	PxF32 brake;
-	bool handbrake;
+	bool  handbrake;
 	PxF32 steer;
-	bool gearUp;
-	bool gearDown;
+	bool  gearUp;
+	bool  gearDown;
 
 	// simulate keyboard inputs
 	bool accelPressed;
@@ -120,7 +120,7 @@ private:
 	bool gearUpPressed;
 	bool gearDownPressed;
 
-	// frames
+	// number of frames performing a backup
 	int numFrames;
 
 	// backup steer
