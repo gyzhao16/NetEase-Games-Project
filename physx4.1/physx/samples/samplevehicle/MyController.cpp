@@ -131,7 +131,7 @@ std::vector<PxVec3> CatmullRom_Smoothing(const std::vector<PxVec3>& points, floa
 
 AutonomousController::AutonomousController()
 {
-	controllerMode = ControllerMode::TARGET_MODE;
+	controllerMode = ControllerMode::TRAJECTORY_MODE;
 	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f, -10.0f, 10.0f, -1.0f, 1.0f);
 	m_pid_steer = new PID_Controller(1.0f, 0.15f, 0.1f, -1.0f, 1.0f, -1.0f, 1.0f);
 	m_vehicle = nullptr;
@@ -142,6 +142,8 @@ AutonomousController::AutonomousController()
 	numFrames = 0;
 	backupSteerleft = false;
 	backupSteerright = false;
+
+	lastPositionInitialized = false;
 }
 
 AutonomousController::~AutonomousController()
@@ -153,6 +155,12 @@ AutonomousController::~AutonomousController()
 void AutonomousController::update(PxF32 dtime) {
 	const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
 	PxTransform pose = actor->getGlobalPose();
+
+	if (!lastPositionInitialized) {
+		lastPosition = pose.p;
+		lastPositionInitialized = true;
+	}
+
 	if (m_tracks.size() > 1000)
 	{
 		m_tracks.erase(m_tracks.begin());
@@ -227,6 +235,9 @@ void AutonomousController::updateTargetMode(PxF32 dtime) {
 			PxVec3 up = pose.q.rotate(PxVec3(0, 1, 0));
 			PxVec3 target = (m_targets[0] - pose.p).getNormalized();
 
+			PxF32 fullDistance = (m_targets[0] - lastPosition).magnitude();
+			PxF32 ratio = dist / fullDistance;
+
 			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
 			float dp = forward.dot(target);
 
@@ -262,6 +273,7 @@ void AutonomousController::updateTargetMode(PxF32 dtime) {
 		}
 		else
 		{
+			lastPosition = m_targets[0];
 			m_targets.erase(m_targets.begin());
 		}
 	}
@@ -299,7 +311,80 @@ void AutonomousController::updateBackupMode(PxF32 dtime) {
 }
 
 void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
+	const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
+	PxTransform pose = actor->getGlobalPose();
 
+	m_vehicleController->setForwardMode((PxVehicleDrive4W*)m_vehicle);
+
+	if (!m_paths_smoothed.empty())
+	{
+		float dist = (m_paths_smoothed[0] - pose.p).magnitude();
+		//if (dist > 3.0f)
+		//{
+		PxVec3 forward = pose.q.rotate(PxVec3(0, 0, 1));
+		PxVec3 up = pose.q.rotate(PxVec3(0, 1, 0));
+		PxVec3 target_speed, target_steer;
+		
+		if (m_paths_smoothed.size() > 100) {
+			target_speed = (m_paths_smoothed[100] - pose.p).getNormalized();
+		}
+		else {
+			target_speed = (m_paths_smoothed[m_paths_smoothed.size() - 1] - pose.p).getNormalized();
+		}
+		
+		if (m_paths_smoothed.size() > 10) {
+			target_steer = (m_paths_smoothed[10] - pose.p).getNormalized();
+		}
+		else {
+			target_steer = (m_paths_smoothed[m_paths_smoothed.size() - 1] - pose.p).getNormalized();
+		}
+
+		float steer_dir = forward.cross(target_steer).dot(up) < 0.0f ? 1.0f : -1.0f;
+		float dp = forward.dot(target_steer);
+
+		PxF32 cos = forward.dot(target_speed);
+
+		// set accel & brake
+		float input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
+		
+		brake = physx::PxClamp(-input / cos, 0.0f, 0.8f);
+		if (currentSpeed > 15) {
+			accel = physx::PxClamp(input * cos, 0.0f, 1.0f);
+		}
+		else {
+			brake = 0.0f;
+			accel = physx::PxClamp(input * cos, std::min(brake + 0.2f, 1.0f), 1.0f);
+		}
+
+		// set steer
+		input = -PxAbs(m_pid_steer->Compute(dtime, dp, 1.0f));
+		steer = steer_dir * input;
+
+		if (dist < 5.0f) {
+			m_paths_smoothed.erase(m_paths_smoothed.begin());
+		}
+		else {
+			int firstWithinRange;
+			for (firstWithinRange = 0; firstWithinRange < std::min(50, (int)m_paths_smoothed.size()); ++firstWithinRange) {
+				if ((m_paths_smoothed[firstWithinRange] - pose.p).magnitude() < 5.0f) {
+					m_paths_smoothed.erase(m_paths_smoothed.begin(), m_paths_smoothed.begin() + firstWithinRange);
+				}
+			}
+		}
+		//}
+		//else
+		//{
+			//m_targets.erase(m_targets.begin());
+		//}
+	}
+	else
+	{
+		brake = 1.0f;
+	}
+
+	if (!m_targets.empty() && (m_targets[0] - pose.p).magnitude() < 7.0f) {
+		m_targets.erase(m_targets.begin());
+	}
 }
 
 void AutonomousController::backup() {
@@ -390,10 +475,23 @@ void AutonomousController::addTarget(PxVec3 target)
 {
 	m_targets.push_back(target);
 	
+	if (controllerMode == ControllerMode::TRAJECTORY_MODE) {
+		if (!m_paths_smoothed.empty()) {
+			lastPosition = m_paths_smoothed[0];
+		}
+		else {
+			const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
+			PxTransform pose = actor->getGlobalPose();
+			lastPosition = pose.p;
+		}
+	}
+
 	m_paths_smoothed.clear();
-	if (m_targets.size() > 1)
+	if (m_targets.size() > 0)
 	{
-		m_paths_smoothed = CatmullRom_Smoothing(m_targets, 0.5f, 1.0f, 0.0f);
+		std::vector<PxVec3> temp_targets(m_targets);
+		temp_targets.insert(temp_targets.begin(), lastPosition);
+		m_paths_smoothed = CatmullRom_Smoothing(temp_targets, 0.5f, 1.0f, 0.0f);
 	}
 }
 

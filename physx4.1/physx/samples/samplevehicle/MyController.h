@@ -141,6 +141,9 @@ private:
 	RenderPhysX3Debug* m_renderer;
 
 	SampleVehicle_VehicleController* m_vehicleController;
+
+	PxVec3 lastPosition;
+	bool lastPositionInitialized;
 };
 
 bool cmpX(Track& t1, Track& t2);
