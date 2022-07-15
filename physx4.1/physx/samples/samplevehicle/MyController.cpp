@@ -1,4 +1,6 @@
+#include <math.h>
 #include "MyController.h"
+
 
 struct PID_Calibration
 {
@@ -81,12 +83,36 @@ private:
 	float			mIntegral;
 };
 
-std::vector<PxVec3> CatmullRom_Smoothing(const std::vector<PxVec3>& points, float dlen, float alpha, float tension)
+// https://en.wikipedia.org/wiki/Curvature#General_expressions
+float CalcCurvature(const PxVec3& a, const PxVec3& b, const PxVec3& c, const PxVec3& d, float t)
 {
-	std::vector<PxVec3> smoothed;
-	if (points.size() <= 1)
+	float tt = t * t, ttt = t * t * t;
+	float x = a.x * ttt + b.x * tt + c.x * t + d.x;
+	float dx = 3.0f * a.x * tt + 2.0f * b.x * t + c.x;
+	float ddx = 6.0f * a.x * t + 2.0f * b.x;
+	float y = a.y * ttt + b.y * tt + c.y * t + d.y;
+	float dy = 3.0f * a.y * tt + 2.0f * b.y * t + c.y;
+	float ddy = 6.0f * a.y * t + 2.0f * b.y;
+	float z = a.z * ttt + b.z * tt + c.z * t + d.z;
+	float dz = 3.0f * a.z * tt + 2.0f * b.z * t + c.z;
+	float ddz = 6.0f * a.z * t + 2.0f * b.z;
+	float curvature = sqrtf((ddz * dy - ddy * dz) * (ddz * dy - ddy * dz) +
+							(ddx * dz - ddz * dx) * (ddx * dz - ddz * dx) +
+							(ddy * dx - ddx * dy) * (ddy * dx - ddx * dy)) / powf(dx * dx + dy * dy + dz * dz, 1.5f);
+	return curvature;
+}
+
+std::vector<SplineNode> CatmullRom_Smoothing(const std::vector<PxVec3>& points, float dlen, float alpha, float tension)
+{
+	std::vector<SplineNode> smoothed;
+	if (points.size() == 0)
 	{
-		return std::move(smoothed);
+		return smoothed;
+	}
+	else if (points.size() == 1)
+	{
+		smoothed.emplace_back(points[0], 0.0f);
+		return smoothed;
 	}
 
 	for (size_t i = 0; i < points.size() - 1; ++i)
@@ -95,12 +121,6 @@ std::vector<PxVec3> CatmullRom_Smoothing(const std::vector<PxVec3>& points, floa
 		PxVec3 p1 = points[i];
 		PxVec3 p2 = points[i + 1];
 		PxVec3 p3 = i == points.size() - 2 ? 2.0f * points[points.size() - 1] - points[points.size() - 2] : points[i + 2];
-
-		if ((p1 - p2).magnitudeSquared() < dlen * dlen)
-		{
-			smoothed.push_back(p1);
-			continue;
-		}
 
 		float t01 = powf((p0 - p1).magnitude(), alpha);
 		float t12 = powf((p1 - p2).magnitude(), alpha);
@@ -121,11 +141,12 @@ std::vector<PxVec3> CatmullRom_Smoothing(const std::vector<PxVec3>& points, floa
 		{
 			float t = i * 1.0f / n;
 			PxVec3 point = a * t * t * t + b * t * t + c * t + d;
-			smoothed.push_back(point);
+			float curvature = CalcCurvature(a, b, c, d, t);
+			smoothed.emplace_back(point, curvature);
 		}
 	}
 
-	smoothed.push_back(points.back());
+	smoothed.emplace_back(points.back(), 0.0f);
 	return std::move(smoothed);
 }
 
@@ -318,7 +339,7 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 
 	if (!m_paths_smoothed.empty())
 	{
-		float dist = (m_paths_smoothed[0] - pose.p).magnitude();
+		float dist = (m_paths_smoothed[0].point - pose.p).magnitude();
 		//if (dist > 3.0f)
 		//{
 		PxVec3 forward = pose.q.rotate(PxVec3(0, 0, 1));
@@ -326,17 +347,17 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 		PxVec3 target_speed, target_steer;
 		
 		if (m_paths_smoothed.size() > 100) {
-			target_speed = (m_paths_smoothed[100] - pose.p).getNormalized();
+			target_speed = (m_paths_smoothed[100].point - pose.p).getNormalized();
 		}
 		else {
-			target_speed = (m_paths_smoothed[m_paths_smoothed.size() - 1] - pose.p).getNormalized();
+			target_speed = (m_paths_smoothed[m_paths_smoothed.size() - 1].point - pose.p).getNormalized();
 		}
 		
 		if (m_paths_smoothed.size() > 10) {
-			target_steer = (m_paths_smoothed[10] - pose.p).getNormalized();
+			target_steer = (m_paths_smoothed[10].point - pose.p).getNormalized();
 		}
 		else {
-			target_steer = (m_paths_smoothed[m_paths_smoothed.size() - 1] - pose.p).getNormalized();
+			target_steer = (m_paths_smoothed[m_paths_smoothed.size() - 1].point - pose.p).getNormalized();
 		}
 
 		float steer_dir = forward.cross(target_steer).dot(up) < 0.0f ? 1.0f : -1.0f;
@@ -366,7 +387,7 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 		else {
 			int firstWithinRange;
 			for (firstWithinRange = 0; firstWithinRange < std::min(50, (int)m_paths_smoothed.size()); ++firstWithinRange) {
-				if ((m_paths_smoothed[firstWithinRange] - pose.p).magnitude() < 5.0f) {
+				if ((m_paths_smoothed[firstWithinRange].point - pose.p).magnitude() < 5.0f) {
 					m_paths_smoothed.erase(m_paths_smoothed.begin(), m_paths_smoothed.begin() + firstWithinRange);
 				}
 			}
@@ -412,7 +433,7 @@ void AutonomousController::drawTarget(PxScene* mScene) {
 	const RendererColor colorGreen(0, 255, 0);
 	if (m_paths_smoothed.size() > 1) {
 		for (size_t i = 0; i < m_paths_smoothed.size() - 1; ++i) {
-			m_renderer->addLine(m_paths_smoothed[i] + PxVec3(0, 0.5f, 0), m_paths_smoothed[i+1] + PxVec3(0, 0.5f, 0), colorGreen);
+			m_renderer->addLine(m_paths_smoothed[i].point + PxVec3(0, 0.5f, 0), m_paths_smoothed[i+1].point + PxVec3(0, 0.5f, 0), colorGreen);
 		}
 	}
 }
@@ -477,7 +498,7 @@ void AutonomousController::addTarget(PxVec3 target)
 	
 	if (controllerMode == ControllerMode::TRAJECTORY_MODE) {
 		if (!m_paths_smoothed.empty()) {
-			lastPosition = m_paths_smoothed[0];
+			lastPosition = m_paths_smoothed[0].point;
 		}
 		else {
 			const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();

@@ -36,6 +36,17 @@ struct Track
 	PxQuat q;
 };
 
+struct SplineNode
+{
+	SplineNode(const PxVec3& _p, float _c)
+	{
+		point = _p;
+		curvature = _c;
+	}
+	PxVec3 point;
+	float  curvature;
+};
+
 enum ControllerMode
 {
 	MANUAL_MODE = 0,
@@ -132,7 +143,7 @@ private:
 
 	std::vector<Track> m_tracks;
 	std::vector<PxVec3> m_targets;
-	std::vector<PxVec3> m_paths_smoothed;
+	std::vector<SplineNode> m_paths_smoothed;
 
 	PID_Controller* m_pid_accel;
 	PID_Controller* m_pid_steer;
