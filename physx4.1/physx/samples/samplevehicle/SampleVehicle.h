@@ -40,6 +40,14 @@
 #include "vehicle/PxVehicleTireFriction.h"
 #include "MyController.h"
 
+#include "imgui.h"
+#include "imgui_impl_dx11.h"
+#include "imgui_impl_win32.h"
+
+#include <wrl/client.h>
+#include <d3d11_1.h>
+#include <DirectXMath.h>
+
 class SampleVehicle : public PhysXSample
 {
 
@@ -77,6 +85,24 @@ public:
 	virtual	void							customizeRender();
 	virtual	void							onSubstep(PxF32 dtime);	
 	virtual void							collectInputEvents(std::vector<const SampleFramework::InputEvent*>& inputEvents);
+//
+protected:
+//
+	WNDCLASSEX wc;
+	HWND      my_hwnd;
+
+	//template <class T>
+	//using ComPtr = Microsoft::WRL::ComPtr<T>;
+	//// Direct3D 11
+	//ComPtr<ID3D11Device> m_pd3dDevice;                    
+	//ComPtr<ID3D11DeviceContext> m_pd3dImmediateContext;   
+	//ComPtr<IDXGISwapChain> m_pSwapChain;                  
+	//// Direct3D 11.1
+	//ComPtr<ID3D11Device1> m_pd3dDevice1;                  
+	//ComPtr<ID3D11DeviceContext1> m_pd3dImmediateContext1; 
+	//ComPtr<IDXGISwapChain1> m_pSwapChain1;                
+
+	//bool InitMainWindow();
 
 private:
 
@@ -198,3 +224,13 @@ private:
 };
 
 #endif
+
+LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
+bool CreateDeviceD3D(HWND hWnd);
+
+void CleanupDeviceD3D();
+
+void CreateRenderTarget();
+
+void CleanupRenderTarget();

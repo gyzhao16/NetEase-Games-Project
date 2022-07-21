@@ -53,6 +53,7 @@ enum ControllerMode
 	TARGET_MODE,
 	BACKUP_MODE,
 	TRAJECTORY_MODE,
+	BLANK_MODE,
 };
 
 class AutonomousController {
@@ -71,7 +72,11 @@ public:
 	void drawPngFile(PxScene* mScene);
 	
 	ControllerMode		getControllerMode() const { return controllerMode; }
-	void				setControllerMode(ControllerMode mode) { controllerMode = mode; }
+	
+	void				setControllerMode(ControllerMode mode) { 
+		lastMode = controllerMode;
+		controllerMode = mode; 
+	}
 
 	std::vector<Track> getVehicleTrack() { return m_tracks; }
 
@@ -113,6 +118,7 @@ private:
 
 	// drive mode
 	ControllerMode controllerMode;
+	ControllerMode lastMode;
 
 	// simulate gamepad inputs
 	PxF32 accel;

@@ -1,7 +1,6 @@
 #include <math.h>
 #include "MyController.h"
 
-
 struct PID_Calibration
 {
 	PID_Calibration()
@@ -21,7 +20,6 @@ struct PID_Calibration
 	float LowValue;
 	float HighValue;
 };
-
 
 class PID_Controller
 {
@@ -153,6 +151,8 @@ std::vector<SplineNode> CatmullRom_Smoothing(const std::vector<PxVec3>& points, 
 AutonomousController::AutonomousController()
 {
 	controllerMode = ControllerMode::TRAJECTORY_MODE;
+	lastMode = ControllerMode::BLANK_MODE;
+
 	m_pid_accel = new PID_Controller(0.5f, 0.08f, 0.1f, -10.0f, 10.0f, -1.0f, 1.0f);
 	m_pid_steer = new PID_Controller(1.0f, 0.15f, 0.1f, -1.0f, 1.0f, -1.0f, 1.0f);
 	m_vehicle = nullptr;
@@ -324,10 +324,29 @@ void AutonomousController::updateBackupMode(PxF32 dtime) {
 			else if (backupSteerleft == false && backupSteerright == true) {
 				steer = 0.5f;
 			}
+			if (lastMode == ControllerMode::TRAJECTORY_MODE) {
+				const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
+				PxTransform pose = actor->getGlobalPose();
+
+				if ((m_paths_smoothed[0].point - pose.p).magnitude() < 5.0f) {
+					m_paths_smoothed.erase(m_paths_smoothed.begin());
+				}
+				else {
+					int firstWithinRange;
+					for (firstWithinRange = 0; firstWithinRange < std::min(20, (int)m_paths_smoothed.size()); ++firstWithinRange) {
+						if ((m_paths_smoothed[firstWithinRange].point - pose.p).magnitude() < 5.0f) {
+							m_paths_smoothed.erase(m_paths_smoothed.begin(), m_paths_smoothed.begin() + firstWithinRange);
+						}
+					}
+				}
+				if (!m_targets.empty() && (m_targets[0] - pose.p).magnitude() < 7.0f) {
+					m_targets.erase(m_targets.begin());
+				}
+			}
 		}
 	}
 	else {
-		setControllerMode(ControllerMode::TARGET_MODE);
+		setControllerMode(lastMode);
 	}
 }
 
@@ -339,6 +358,33 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 
 	if (!m_paths_smoothed.empty())
 	{
+		/*int max_range = m_paths_smoothed.size() > 10 ? 10 : (int)m_paths_smoothed.size();
+		PxF32 max_curv = 0.0f;
+		for (int index = 0; index < max_range; ++index) {
+			max_curv = std::max(m_paths_smoothed[index].curvature, max_curv);
+		}*/
+		PxF32 max_curv = m_paths_smoothed[0].curvature;
+
+		if (max_curv > 0.5f) {
+			setControllerMode(ControllerMode::BACKUP_MODE);
+			numFrames = 200;
+
+			PxVec3 forward = pose.q.rotate(PxVec3(0, 0, 1));
+			PxVec3 up = pose.q.rotate(PxVec3(0, 1, 0));
+			PxVec3 target = (m_paths_smoothed[50].point - pose.p).getNormalized();
+			
+			float steer_dir = forward.cross(target).dot(up) < 0.0f ? 1.0f : -1.0f;
+
+			if (steer_dir < 0.0f) {
+				backupSteerleft = true;
+				backupSteerright = false;
+			}
+			else {
+				backupSteerleft = false;
+				backupSteerright = true;
+			}
+		}
+
 		float dist = (m_paths_smoothed[0].point - pose.p).magnitude();
 		//if (dist > 3.0f)
 		//{
@@ -362,12 +408,13 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 
 		float steer_dir = forward.cross(target_steer).dot(up) < 0.0f ? 1.0f : -1.0f;
 		float dp = forward.dot(target_steer);
-
 		PxF32 cos = forward.dot(target_speed);
 
 		// set accel & brake
 		float input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
-		
+		//accel = physx::PxClamp(input, 0.0f, 1.0f);
+		//brake = physx::PxClamp(-input, 0.0f, 1.0f);
+
 		brake = physx::PxClamp(-input / cos, 0.0f, 0.8f);
 		if (currentSpeed > 15) {
 			accel = physx::PxClamp(input * cos, 0.0f, 1.0f);
@@ -385,12 +432,12 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 			m_paths_smoothed.erase(m_paths_smoothed.begin());
 		}
 		else {
-			int firstWithinRange;
+			/*int firstWithinRange;
 			for (firstWithinRange = 0; firstWithinRange < std::min(50, (int)m_paths_smoothed.size()); ++firstWithinRange) {
 				if ((m_paths_smoothed[firstWithinRange].point - pose.p).magnitude() < 5.0f) {
 					m_paths_smoothed.erase(m_paths_smoothed.begin(), m_paths_smoothed.begin() + firstWithinRange);
 				}
-			}
+			}*/
 		}
 		//}
 		//else
@@ -431,6 +478,7 @@ void AutonomousController::drawTarget(PxScene* mScene) {
 	}
 
 	const RendererColor colorGreen(0, 255, 0);
+
 	if (m_paths_smoothed.size() > 1) {
 		for (size_t i = 0; i < m_paths_smoothed.size() - 1; ++i) {
 			m_renderer->addLine(m_paths_smoothed[i].point + PxVec3(0, 0.5f, 0), m_paths_smoothed[i+1].point + PxVec3(0, 0.5f, 0), colorGreen);
@@ -495,7 +543,6 @@ void AutonomousController::setTarget(PxVec3 target)
 void AutonomousController::addTarget(PxVec3 target)
 {
 	m_targets.push_back(target);
-	
 	if (controllerMode == ControllerMode::TRAJECTORY_MODE) {
 		if (!m_paths_smoothed.empty()) {
 			lastPosition = m_paths_smoothed[0].point;
