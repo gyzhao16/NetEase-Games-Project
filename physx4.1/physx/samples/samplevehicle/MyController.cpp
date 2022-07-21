@@ -1,6 +1,60 @@
 #include <math.h>
 #include "MyController.h"
 
+#define Vector3d	PxVec3
+#define Quaternion	PxQuat
+
+class Vehicle
+{
+public:
+	Vehicle(PxVehicleWheels* pxVehicle)
+	{
+		m_pxVehicle4x = pxVehicle;
+	}
+
+	Vector3d	GetPosition() const
+	{
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		return pose.p;
+	}
+
+	Quaternion	GetRotation() const
+	{
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		return pose.q;
+	}
+
+	Vector3d	GetForwardVector() const
+	{
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		PxVec3 forward = pose.q.rotate(PxVec3(0, 0, 1));
+		return forward;
+	}
+
+	Vector3d	GetUpVector() const
+	{
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		PxVec3 up = pose.q.rotate(PxVec3(0, 1, 0));
+		return up;
+	}
+
+	Vector3d	GetLeftVector() const;
+	Vector3d	GetRightVector() const;
+
+	float		GetSteerAngle() const;
+	float		GetMaxSteerAngle() const;
+
+	Vector3d	GetCenterOfMass() const;
+	Vector3d	GetFrontAxleCenter() const;
+	Vector3d	GetRearAxleCenter() const;
+	float		GetFrontAxleWidth() const;
+	float		GetReartAxleWidth() const;
+	float		GetAxleLength() const;
+
+private:
+	PxVehicleWheels* m_pxVehicle4x;
+};
+
 struct PID_Calibration
 {
 	PID_Calibration()
@@ -84,14 +138,11 @@ private:
 // https://en.wikipedia.org/wiki/Curvature#General_expressions
 float CalcCurvature(const PxVec3& a, const PxVec3& b, const PxVec3& c, const PxVec3& d, float t)
 {
-	float tt = t * t, ttt = t * t * t;
-	float x = a.x * ttt + b.x * tt + c.x * t + d.x;
+	float tt = t * t;
 	float dx = 3.0f * a.x * tt + 2.0f * b.x * t + c.x;
 	float ddx = 6.0f * a.x * t + 2.0f * b.x;
-	float y = a.y * ttt + b.y * tt + c.y * t + d.y;
 	float dy = 3.0f * a.y * tt + 2.0f * b.y * t + c.y;
 	float ddy = 6.0f * a.y * t + 2.0f * b.y;
-	float z = a.z * ttt + b.z * tt + c.z * t + d.z;
 	float dz = 3.0f * a.z * tt + 2.0f * b.z * t + c.z;
 	float ddz = 6.0f * a.z * t + 2.0f * b.z;
 	float curvature = sqrtf((ddz * dy - ddy * dz) * (ddz * dy - ddy * dz) +
