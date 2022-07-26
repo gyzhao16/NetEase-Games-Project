@@ -38,19 +38,64 @@ public:
 		return up;
 	}
 
-	Vector3d	GetLeftVector() const;
-	Vector3d	GetRightVector() const;
+	Vector3d	GetLeftVector() const {
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		PxVec3 left = pose.q.rotate(PxVec3(1, 0, 0));
+		return left;
+	}
 
-	float		GetSteerAngle() const;
-	float		GetMaxSteerAngle() const;
+	Vector3d	GetRightVector() const {
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		PxVec3 right = pose.q.rotate(PxVec3(-1, 0, 0));
+		return right;
+	}
 
-	Vector3d	GetCenterOfMass() const;
-	Vector3d	GetFrontAxleCenter() const;
-	Vector3d	GetRearAxleCenter() const;
-	float		GetFrontAxleWidth() const;
-	float		GetReartAxleWidth() const;
-	float		GetAxleLength() const;
+	float		GetSteerAngle() const {
+		PxReal angle = m_pxVehicle4x->mWheelsDynData.getWheelRotationAngle(PxVehicleDrive4WWheelOrder::eFRONT_LEFT);
+		return angle;
+	}
 
+	float		GetMaxSteerAngle() const {
+		PxReal maxAngle = m_pxVehicle4x->mWheelsSimData.getWheelData(PxVehicleDrive4WWheelOrder::eFRONT_LEFT).mMaxSteer;
+		return maxAngle;
+	}
+
+	Vector3d	GetCenterOfMass() const {
+		PxTransform pose = m_pxVehicle4x->getRigidDynamicActor()->getGlobalPose();
+		Vector3d centerOfMass = pose.p + m_pxVehicle4x->getRigidDynamicActor()->getCMassLocalPose().p;
+		return centerOfMass;
+	}
+
+	Vector3d	GetFrontAxleCenter() const {
+		PxVec3 frontLeft = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eFRONT_LEFT);
+		PxVec3 frontRight = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eFRONT_RIGHT);
+		return GetCenterOfMass() + (frontLeft + frontRight) / 2;
+	}
+
+	Vector3d	GetRearAxleCenter() const {
+		PxVec3 rearLeft = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eREAR_LEFT);
+		PxVec3 rearRight = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eREAR_RIGHT);
+		return GetCenterOfMass() + (rearLeft + rearRight) / 2;
+	}
+
+	float		GetFrontAxleWidth() const {
+		PxVec3 frontLeft = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eFRONT_LEFT);
+		PxVec3 frontRight = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eFRONT_RIGHT);
+		return PxAbs(frontLeft.x - frontRight.x);
+	}
+
+	float		GetReartAxleWidth() const {
+		PxVec3 rearLeft = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eREAR_LEFT);
+		PxVec3 rearRight = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eREAR_RIGHT);
+		return PxAbs(rearLeft.x - rearRight.x);
+	}
+
+	float		GetAxleLength() const {
+		PxVec3 frontLeft = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eFRONT_LEFT);
+		PxVec3 rearLeft = m_pxVehicle4x->mWheelsSimData.getWheelCentreOffset(PxVehicleDrive4WWheelOrder::eREAR_LEFT);
+		return PxAbs(frontLeft.z - rearLeft.z);
+	}
+	
 private:
 	PxVehicleWheels* m_pxVehicle4x;
 };
