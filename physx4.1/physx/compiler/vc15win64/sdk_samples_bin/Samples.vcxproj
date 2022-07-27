@@ -81,6 +81,7 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</GenerateManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplecctsharedcode;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebase;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\framework\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\renderer\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\common\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\common\src;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\contact;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\common;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\convex;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\distance;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\gjk;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\intersection;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\mesh;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\hf;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\geomutils\src\pcm;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\PhysXVehicle\src;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\pxtoolkit\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\..\pxshared\include;C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\source\foundation\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -339,25 +340,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_demo.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_draw.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_impl_dx11.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_impl_dx12.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_impl_win32.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_tables.cpp" />
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_widgets.cpp" />
     <ClCompile Include="..\..\..\samples\samplevehicle\MyController.cpp" />
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridges.cpp" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imconfig.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_impl_dx11.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_impl_dx12.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_impl_win32.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_internal.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imstb_rectpack.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imstb_textedit.h" />
-    <ClInclude Include="..\..\..\samples\samplevehicle\imstb_truetype.h" />
     <ClInclude Include="..\..\..\samples\samplevehicle\MyController.h" />
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridges.h" />
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridgesCCT.cpp" />

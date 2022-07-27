@@ -52,6 +52,13 @@
 #pragma warning(pop)
 #endif
 
+//#include "imgui.h"
+//#include "imgui_impl_dx11.h"
+//#include <imgui_impl_win32.h>
+//#include <dxgi.h>
+//#include <wrl/client.h>
+//#include <DirectXMath.h>
+
 #if defined(RENDERER_ENABLE_OPENGL)
 	#define GLEW_STATIC
 	#include <GL/glew.h>
@@ -160,8 +167,13 @@ static void handleMouseEvent(UINT msg, LPARAM lParam, HWND hwnd, RendererWindow*
 	}
 }
 
+// extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 static INT_PTR CALLBACK windowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+	//if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wParam, lParam))
+	//	return true;
+
 #if defined(RENDERER_64BIT)
 	RendererWindow* window = (RendererWindow*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
 #else
@@ -1046,6 +1058,7 @@ void* WindowsPlatform::initializeD3D11()
 		}
 	}
 #endif
+
 	return m_dxgiFactory;
 }
 
@@ -1070,6 +1083,7 @@ physx::PxU32 WindowsPlatform::initializeD3D11Display(void *dxgiSwapChainDesc,
 	HRESULT hr = S_OK;
 
 #if defined(RENDERER_ENABLE_DIRECT3D11)
+	
 	ID3D11Device* pD3D11Device               = NULL;
 	ID3D11DeviceContext* pD3D11DeviceContext = NULL;
 	IDXGISwapChain* pSwapChain               = NULL;
@@ -1163,6 +1177,13 @@ physx::PxU32 WindowsPlatform::initializeD3D11Display(void *dxgiSwapChainDesc,
 			vAdapters[i]->Release();
 		}
 	} 
+
+	//IMGUI_CHECKVERSION();
+	//ImGui::CreateContext();
+	//ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//ImGui_ImplWin32_Init(m_hwnd);
+	//ImGui_ImplDX11_Init(pD3D11Device, pD3D11DeviceContext);
+	
 	RENDERER_ASSERT(m_dxgiSwap && m_d3d11Device && m_d3d11DeviceContext, "Unable to create D3D device and swap chain");
 #endif
 
@@ -1182,9 +1203,19 @@ bool WindowsPlatform::makeSureDirectoryPathExists(const char* dirPath)
 
 physx::PxU32 WindowsPlatform::D3D11Present(bool vsync)
 {
+	//ImGui_ImplDX11_NewFrame();
+	//ImGui_ImplWin32_NewFrame();
+	//ImGui::NewFrame();
+	//ImGui::ShowDemoWindow();
+
+	//ImGui::Render();
+	//
+	//ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+
 #if defined(RENDERER_ENABLE_DIRECT3D11)
 	return m_dxgiSwap->Present(vsync ? 1 : 0, 0);
 #else
 	return 0;
 #endif
 }
+

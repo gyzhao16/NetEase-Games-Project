@@ -431,28 +431,28 @@ void SampleVehicle::onInit()
 	//Set up the fog.
 	getRenderer()->setFog(SampleRenderer::RendererColor(40,40,40), 225.0f);
 
-	wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, _T("ImGui Example"), NULL };
-	::RegisterClassEx(&wc);
-	my_hwnd = ::CreateWindow(wc.lpszClassName, _T("Dear ImGui DirectX11 Example"), WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, NULL, NULL, wc.hInstance, NULL);
+	//wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, _T("ImGui Example"), NULL };
+	//::RegisterClassEx(&wc);
+	//my_hwnd = ::CreateWindow(wc.lpszClassName, _T("Dear ImGui DirectX11 Example"), WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, NULL, NULL, wc.hInstance, NULL);
 
-	if (!CreateDeviceD3D(my_hwnd))
-	{
-		CleanupDeviceD3D();
-		::UnregisterClass(wc.lpszClassName, wc.hInstance);
-		return ;
-	}
+	//if (!CreateDeviceD3D(my_hwnd))
+	//{
+	//	CleanupDeviceD3D();
+	//	::UnregisterClass(wc.lpszClassName, wc.hInstance);
+	//	return ;
+	//}
 
-	::ShowWindow(my_hwnd, SW_SHOWDEFAULT);
-	::UpdateWindow(my_hwnd);
-	
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//::ShowWindow(my_hwnd, SW_SHOWDEFAULT);
+	//::UpdateWindow(my_hwnd);
+	//
+	//IMGUI_CHECKVERSION();
+	//ImGui::CreateContext();
+	//ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-	ImGui::StyleColorsDark();
-	
-	ImGui_ImplWin32_Init(my_hwnd);
-	ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
+	//ImGui::StyleColorsDark();
+	//
+	//ImGui_ImplWin32_Init(my_hwnd);
+	//ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
 }
 
 void SampleVehicle::newMesh(const RAWMesh& data)
@@ -594,12 +594,12 @@ void SampleVehicle::onShutdown()
 		mVehicleManager.shutdown();
 	}
 
-	ImGui_ImplDX11_Shutdown();
-	ImGui_ImplWin32_Shutdown();
-	ImGui::DestroyContext();
-	CleanupDeviceD3D();
-	::DestroyWindow(my_hwnd);
-	::UnregisterClass(wc.lpszClassName, wc.hInstance);
+	//ImGui_ImplDX11_Shutdown();
+	//ImGui_ImplWin32_Shutdown();
+	//ImGui::DestroyContext();
+	//CleanupDeviceD3D();
+	//::DestroyWindow(my_hwnd);
+	//::UnregisterClass(wc.lpszClassName, wc.hInstance);
 
 	PhysXSample::onShutdown();
 
@@ -757,19 +757,19 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 	mMyController.drawTarget(mScene);
 	mMyController.drawTrack(mScene);
 
-	ImGui_ImplDX11_NewFrame();
-	ImGui_ImplWin32_NewFrame();
-	ImGui::NewFrame();
-	ImGui::ShowDemoWindow();
+	//ImGui_ImplDX11_NewFrame();
+	//ImGui_ImplWin32_NewFrame();
+	//ImGui::NewFrame();
+	//ImGui::ShowDemoWindow();
 
-	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+	//ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-	ImGui::Render();
-	const float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };
-	g_pd3dDeviceContext->OMSetRenderTargets(1, &g_mainRenderTargetView, NULL);
-	g_pd3dDeviceContext->ClearRenderTargetView(g_mainRenderTargetView, clear_color_with_alpha);
-	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-	g_pSwapChain->Present(0, 0);
+	//ImGui::Render();
+	//const float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };
+	//g_pd3dDeviceContext->OMSetRenderTargets(1, &g_mainRenderTargetView, NULL);
+	//g_pd3dDeviceContext->ClearRenderTargetView(g_mainRenderTargetView, clear_color_with_alpha);
+	//ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+	//g_pSwapChain->Present(0, 0);
 }
 
 void SampleVehicle::onSubstep(PxF32 dtime)
@@ -921,12 +921,12 @@ void SampleVehicle::onSubstep(PxF32 dtime)
 	}
 }
 
-extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+//extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
-		return true;
+	//if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
+	//	return true;
 	switch (msg)
 	{
 	case WM_SIZE:

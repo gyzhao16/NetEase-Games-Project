@@ -112,30 +112,6 @@
     <ClCompile Include="..\..\..\samples\samplevehicle\MyController.cpp">
       <Filter>SampleVehicle</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_demo.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_draw.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_impl_dx11.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_impl_win32.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_tables.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_widgets.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\samplevehicle\imgui_impl_dx12.cpp">
-      <Filter>SampleVehicle</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\samplebridges\SampleBridges.h">
@@ -238,33 +214,6 @@
       <Filter>CCTShared</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\samples\samplevehicle\MyController.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imconfig.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_impl_dx11.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_impl_win32.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_internal.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imstb_rectpack.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imstb_textedit.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imstb_truetype.h">
-      <Filter>SampleVehicle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\samplevehicle\imgui_impl_dx12.h">
       <Filter>SampleVehicle</Filter>
     </ClInclude>
   </ItemGroup>
