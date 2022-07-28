@@ -295,25 +295,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_demo.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_draw.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx11.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx12.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_win32.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_tables.cpp" />
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_widgets.cpp" />
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\src\windows\WindowsSamplePlatform.cpp" />
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\src\windows\WindowsSampleUserInput.cpp" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imconfig.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx11.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx12.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_win32.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_internal.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imstb_rectpack.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imstb_textedit.h" />
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imstb_truetype.h" />
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\include\windows\WindowsSampleUserInputIds.h" />
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\include\windows\WindowsSampleUserInput.h" />
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\include\windows\WindowsSamplePlatform.h" />

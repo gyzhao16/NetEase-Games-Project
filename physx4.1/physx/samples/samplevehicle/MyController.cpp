@@ -365,7 +365,7 @@ void AutonomousController::updateTargetMode(PxF32 dtime) {
 				if (dp > 0.0f) { // target is ahead
 
 					// set accel & brake
-					float input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
+					PxF32 input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
 					accel = physx::PxClamp(input, 0.0f, 1.0f);
 					brake = physx::PxClamp(-input, 0.0f, 1.0f);
 

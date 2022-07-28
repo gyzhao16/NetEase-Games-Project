@@ -13,30 +13,6 @@
     <ClCompile Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\src\SampleUserInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_demo.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_draw.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx11.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx12.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_win32.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_tables.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\samples\sampleframework\platform\include\imgui_widgets.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\include\windows\WindowsSampleUserInputIds.h">
@@ -55,33 +31,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Guangyuan Zhao\Documents\GitHub\NetEase-Games-Project\NetEase-Games-Project\physx4.1\physx\samples\sampleframework\platform\include\SamplePlatform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imconfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx11.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_dx12.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_impl_win32.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imgui_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imstb_rectpack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imstb_textedit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\samples\sampleframework\platform\include\imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
