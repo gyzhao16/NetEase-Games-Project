@@ -89,8 +89,8 @@ static PxTransform gPlayerCarStartTransforms[NUM_PLAYER_CARS] =
 static PxTransform gVehicle4WStartTransforms[NUM_NONPLAYER_4W_VEHICLES] = 
 {
 	//Stack of 2 cars
-	PxTransform(PxVec3(-78.796158f,9.8764671f,155.47554f), PxQuat(0.00062184106f,0.97696519f,-0.0029967001f,0.21337670f)),
-	PxTransform(PxVec3(-78.796158f,11.7764671f,155.47554f), PxQuat(0.00062184106f,0.97696519f,-0.0029967001f,0.21337670f)),
+	//PxTransform(PxVec3(-78.796158f,9.8764671f,155.47554f), PxQuat(0.00062184106f,0.97696519f,-0.0029967001f,0.21337670f)),
+	//PxTransform(PxVec3(-78.796158f,11.7764671f,155.47554f), PxQuat(0.00062184106f,0.97696519f,-0.0029967001f,0.21337670f)),
 
 	//Stack of 2 cars
 	PxTransform(PxVec3(-80.391357f,9.8760214f,161.93578f), PxQuat(1.0251222e-005f, 0.98799443f, -6.0369461e-005f, 0.15448983f)),
@@ -248,7 +248,7 @@ PxF32 gRevoluteJointMaxTheta=0;
 //Route
 ////////////////////////////////////////////////////////////////
 
-PxTransform gWayPoints[35]=
+PxTransform gWayPoints[34]=
 {
 	PxTransform(PxVec3( -154.699753 , 9.863837 , 87.684113 ), PxQuat( -0.000555 , -0.267015 , 0.000155 , -0.963692 ) ) ,
 	PxTransform(PxVec3( -133.385757 , 9.863703 , 118.680717 ), PxQuat( -0.000620 , -0.334975 , 0.000219 , -0.942227 ) ) ,
@@ -278,15 +278,15 @@ PxTransform gWayPoints[35]=
 	PxTransform(PxVec3( -80.392769 , 9.863695 , -149.740082 ), PxQuat( -0.000149 , 0.987276 , -0.000512 , -0.159015 ) ) ,
 	PxTransform(PxVec3( -88.452507 , 9.864114 , -152.396698 ), PxQuat( -0.000355 , 0.622921 , -0.000278 , -0.782285 ) ) ,
 	PxTransform(PxVec3( -106.042450 , 9.863844 , -144.640076 ), PxQuat( -0.000485 , 0.459262 , -0.000133 , -0.888301 ) ) ,
-	PxTransform(PxVec3( -134.893997 , 15.093562 , -114.433586 ), PxQuat( 0.073759 , 0.354141 , 0.027569 , -0.931871 ) ) ,
+	PxTransform(PxVec3( -134.893997 , 10.093562 , -114.433586 ), PxQuat( 0.073759 , 0.354141 , 0.027569 , -0.931871 ) ) ,
 	PxTransform(PxVec3( -145.495453 , 9.864394 , -101.019417 ), PxQuat( -0.000351 , 0.305924 , -0.000104 , -0.952056 ) ) ,
 	PxTransform(PxVec3( -152.808212 , 9.864192 , -86.800613 ), PxQuat( -0.000099 , 0.206095 , -0.000015 , -0.978532 ) ) ,
 	PxTransform(PxVec3( -156.457855 , 9.864244 , -81.270035 ), PxQuat( -0.000420 , 0.201378 , -0.000086 , -0.979514 ) ) ,
 	PxTransform(PxVec3( -169.079376 , 10.192255 , -48.906967 ), PxQuat( 0.003633 , 0.179159 , 0.000892 , -0.983813 ) ) ,
-	PxTransform(PxVec3( -151.470123 , 7.783551 , -17.838057 ), PxQuat( 0.029215 , -0.077987 , -0.050732 , -0.995234 ) ) ,
+	//PxTransform(PxVec3( -151.470123 , 7.783551 , -17.838057 ), PxQuat( 0.029215 , -0.077987 , -0.050732 , -0.995234 ) ) ,
 	PxTransform(PxVec3( -171.549225 , 9.864206 , 47.239426 ), PxQuat( -0.000319 , -0.159609 , 0.000039 , -0.987180 ) ) 
 };
-PxU32 gNumWayPoints=35;
+PxU32 gNumWayPoints=34;
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -310,7 +310,7 @@ SampleVehicle::SampleVehicle(PhysXSampleApplication& app) :
 	//mTankDriveModel						(PxVehicleDriveTankControlModel::eSPECIAL),
 	//mTankDriveModel						(PxVehicleDriveTankControlModel::eSTANDARD),
 	mTerrainSize						(256),
-	mTerrainWidth						(200.0f),
+	mTerrainWidth						(2.0f),
 	mHFActor							(NULL),
 	mHideScreenText						(false),
 	mDebugRenderFlag					(false),
@@ -748,9 +748,22 @@ void SampleVehicle::onTickPostRender(PxF32 dtime)
 	mWayPoints.getNextWayPointsAndLineDirs(numPoints,v[0],v[1],v[2],w[0],w[1],w[2]);
 	for(PxU32 i=0;i<numPoints;i++)
 	{
-		//getDebugRenderer()->addLine(v[i],v[i]+PxVec3(0,5,0),colors[i]);
-		//getDebugRenderer()->addLine(v[i]-w[i],v[i]+w[i],colors[i]);
+		getDebugRenderer()->addLine(v[i],v[i]+PxVec3(0,5,0),colors[i]);
+		getDebugRenderer()->addLine(v[i]-w[i],v[i]+w[i],colors[i]);
 	}
+
+	PxVec3 _v;
+	if (mMyController.getTargets().size() == 0 && numPoints == 3) {
+		mMyController.addTarget(v[0]);
+		mMyController.addTarget(v[1]);
+		mMyController.addTarget(v[2]);
+	}
+	else if (mMyController.getTargets().size() < 3){
+		if (mWayPoints.getNextWayPoint(_v) && _v != mMyController.getTargets()[mMyController.getTargets().size() - 1]) {
+			mMyController.addTarget(_v);
+		}
+	}
+
 
 	// draw track
 	mMyController.setRenderer(getDebugRenderer());
@@ -1695,115 +1708,115 @@ void SampleVehicle::createObstacles()
 {
 	PxSceneWriteLock scopedLock(*mScene);
 	//Create some giant pendula
-	{
-		PxTransform shapeTransforms[3]={PxTransform(PxIdentity),PxTransform(PxIdentity),PxTransform(PxIdentity)};
-		PxMaterial* shapeMaterials[3]={NULL,NULL,NULL};
-		PxGeometry* shapeGeometries[3]={NULL,NULL,NULL};
-		PxShape* shapes[3]={NULL,NULL,NULL};
+	//{
+	//	PxTransform shapeTransforms[3]={PxTransform(PxIdentity),PxTransform(PxIdentity),PxTransform(PxIdentity)};
+	//	PxMaterial* shapeMaterials[3]={NULL,NULL,NULL};
+	//	PxGeometry* shapeGeometries[3]={NULL,NULL,NULL};
+	//	PxShape* shapes[3]={NULL,NULL,NULL};
 
-		gNumRevoluteJoints=0;
+	//	gNumRevoluteJoints=0;
 
-		for(PxU32 i=0;i<MAX_NUM_PENDULA;i++)
-		{
-			//Get the transform to position the next pendulum ball.
-			const PxTransform& ballStartTransform=gPendulaBallStartTransforms[i];
+	//	for(PxU32 i=0;i<MAX_NUM_PENDULA;i++)
+	//	{
+	//		//Get the transform to position the next pendulum ball.
+	//		const PxTransform& ballStartTransform=gPendulaBallStartTransforms[i];
 
-			//Pendulum made of two shapes : a sphere for the ball and a cylinder for the shaft.
-			//In the absence of a special material for pendula just use the tarmac material. 
-			PxSphereGeometry geomBall(gPendulumBallRadius);
-			shapeGeometries[0]=&geomBall;
-			shapeTransforms[0]=PxTransform(PxIdentity);
-			shapeMaterials[0]=mStandardMaterials[SURFACE_TYPE_TARMAC];
-			PxConvexMeshGeometry geomShaft(createCylinderConvexMesh(gPendulumShaftLength, gPendulumShaftWidth, 8, getPhysics(), getCooking()));
-			shapeGeometries[1]=&geomShaft;
-			shapeTransforms[1]=PxTransform(PxVec3(0, 0.5f*gPendulumShaftLength, 0), PxQuat(PxHalfPi, PxVec3(0,0,1))),
-			shapeMaterials[1]=mStandardMaterials[SURFACE_TYPE_TARMAC];
+	//		//Pendulum made of two shapes : a sphere for the ball and a cylinder for the shaft.
+	//		//In the absence of a special material for pendula just use the tarmac material. 
+	//		PxSphereGeometry geomBall(gPendulumBallRadius);
+	//		shapeGeometries[0]=&geomBall;
+	//		shapeTransforms[0]=PxTransform(PxIdentity);
+	//		shapeMaterials[0]=mStandardMaterials[SURFACE_TYPE_TARMAC];
+	//		PxConvexMeshGeometry geomShaft(createCylinderConvexMesh(gPendulumShaftLength, gPendulumShaftWidth, 8, getPhysics(), getCooking()));
+	//		shapeGeometries[1]=&geomShaft;
+	//		shapeTransforms[1]=PxTransform(PxVec3(0, 0.5f*gPendulumShaftLength, 0), PxQuat(PxHalfPi, PxVec3(0,0,1))),
+	//		shapeMaterials[1]=mStandardMaterials[SURFACE_TYPE_TARMAC];
 
-			//Ready to add the pendulum as a dynamic object.
-			PxRigidDynamic* actor=addDynamicObstacle(ballStartTransform,gPendulumBallMass,2,shapeTransforms,shapeGeometries,shapeMaterials);
+	//		//Ready to add the pendulum as a dynamic object.
+	//		PxRigidDynamic* actor=addDynamicObstacle(ballStartTransform,gPendulumBallMass,2,shapeTransforms,shapeGeometries,shapeMaterials);
 
-			//As an optimization we don't want pendulum to intersect with static geometry because the position and 
-			//limits on joint rotation will ensure that this is already impossible.
-			actor->getShapes(shapes,2);
-			PxFilterData simFilterData=shapes[0]->getSimulationFilterData();
-			simFilterData.word1 &= ~COLLISION_FLAG_GROUND;
-			shapes[0]->setSimulationFilterData(simFilterData);
-			shapes[1]->setSimulationFilterData(simFilterData);
-			//As a further optimization lets set the pendulum shapes to be non-drivable surfaces.
-			PxFilterData qryFilterData;
-			SampleVehicleSetupNonDrivableShapeQueryFilterData(&qryFilterData);
-			shapes[0]->setQueryFilterData(qryFilterData);
-			shapes[1]->setQueryFilterData(qryFilterData);
-			
-			//Add static geometry to give the appearance that something is physically supporting the pendulum.
-			//This supporting geometry is just a vertical bar and two horizontal bars.
-			const PxF32 groundClearance=3.0f;
-			PxConvexMeshGeometry geomHorizontalBar(createCylinderConvexMesh(gPendulumSuspensionStructureWidth, gPendulumShaftWidth, 8, getPhysics(), getCooking())); 
-			PxConvexMeshGeometry geomVerticalBar(createCylinderConvexMesh(gPendulumShaftLength+groundClearance, gPendulumShaftWidth, 8, getPhysics(), getCooking()));
-			shapeGeometries[0]=&geomHorizontalBar;
-			shapeMaterials[0]=mStandardMaterials[SURFACE_TYPE_TARMAC];
-			shapeTransforms[0]=PxTransform(PxVec3(0, gPendulumShaftLength, 0), PxQuat(PxIdentity));
-			shapeGeometries[1]=&geomVerticalBar;
-			shapeMaterials[1]=mStandardMaterials[SURFACE_TYPE_TARMAC];
-			shapeTransforms[1]=PxTransform(PxVec3(0.5f*gPendulumSuspensionStructureWidth, 0.5f*(gPendulumShaftLength-groundClearance), 0), PxQuat(PxHalfPi, PxVec3(0,0,1)));
-			shapeGeometries[2]=&geomVerticalBar;
-			shapeMaterials[2]=mStandardMaterials[SURFACE_TYPE_TARMAC];
-			shapeTransforms[2]=PxTransform(PxVec3(-0.5f*gPendulumSuspensionStructureWidth, 0.5f*(gPendulumShaftLength-groundClearance), 0), PxQuat(PxHalfPi, PxVec3(0,0,1)));
+	//		//As an optimization we don't want pendulum to intersect with static geometry because the position and 
+	//		//limits on joint rotation will ensure that this is already impossible.
+	//		actor->getShapes(shapes,2);
+	//		PxFilterData simFilterData=shapes[0]->getSimulationFilterData();
+	//		simFilterData.word1 &= ~COLLISION_FLAG_GROUND;
+	//		shapes[0]->setSimulationFilterData(simFilterData);
+	//		shapes[1]->setSimulationFilterData(simFilterData);
+	//		//As a further optimization lets set the pendulum shapes to be non-drivable surfaces.
+	//		PxFilterData qryFilterData;
+	//		SampleVehicleSetupNonDrivableShapeQueryFilterData(&qryFilterData);
+	//		shapes[0]->setQueryFilterData(qryFilterData);
+	//		shapes[1]->setQueryFilterData(qryFilterData);
+	//		
+	//		//Add static geometry to give the appearance that something is physically supporting the pendulum.
+	//		//This supporting geometry is just a vertical bar and two horizontal bars.
+	//		const PxF32 groundClearance=3.0f;
+	//		PxConvexMeshGeometry geomHorizontalBar(createCylinderConvexMesh(gPendulumSuspensionStructureWidth, gPendulumShaftWidth, 8, getPhysics(), getCooking())); 
+	//		PxConvexMeshGeometry geomVerticalBar(createCylinderConvexMesh(gPendulumShaftLength+groundClearance, gPendulumShaftWidth, 8, getPhysics(), getCooking()));
+	//		shapeGeometries[0]=&geomHorizontalBar;
+	//		shapeMaterials[0]=mStandardMaterials[SURFACE_TYPE_TARMAC];
+	//		shapeTransforms[0]=PxTransform(PxVec3(0, gPendulumShaftLength, 0), PxQuat(PxIdentity));
+	//		shapeGeometries[1]=&geomVerticalBar;
+	//		shapeMaterials[1]=mStandardMaterials[SURFACE_TYPE_TARMAC];
+	//		shapeTransforms[1]=PxTransform(PxVec3(0.5f*gPendulumSuspensionStructureWidth, 0.5f*(gPendulumShaftLength-groundClearance), 0), PxQuat(PxHalfPi, PxVec3(0,0,1)));
+	//		shapeGeometries[2]=&geomVerticalBar;
+	//		shapeMaterials[2]=mStandardMaterials[SURFACE_TYPE_TARMAC];
+	//		shapeTransforms[2]=PxTransform(PxVec3(-0.5f*gPendulumSuspensionStructureWidth, 0.5f*(gPendulumShaftLength-groundClearance), 0), PxQuat(PxHalfPi, PxVec3(0,0,1)));
 
-			//Ready to add the support geometry as a static object.
-			PxRigidStatic* staticActor=addStaticObstacle(ballStartTransform,3,shapeTransforms,shapeGeometries,shapeMaterials);
+	//		//Ready to add the support geometry as a static object.
+	//		PxRigidStatic* staticActor=addStaticObstacle(ballStartTransform,3,shapeTransforms,shapeGeometries,shapeMaterials);
 
-			//As an optimization lets disable collision with the dynamic pendulum because the joint limits will make 
-			//collision impossible.
-			staticActor->getShapes(shapes,3);
-			simFilterData=shapes[0]->getSimulationFilterData();
-			simFilterData.word1 &= ~COLLISION_FLAG_OBSTACLE;
-			shapes[0]->setSimulationFilterData(simFilterData);
-			shapes[1]->setSimulationFilterData(simFilterData);
-			shapes[2]->setSimulationFilterData(simFilterData);
+	//		//As an optimization lets disable collision with the dynamic pendulum because the joint limits will make 
+	//		//collision impossible.
+	//		staticActor->getShapes(shapes,3);
+	//		simFilterData=shapes[0]->getSimulationFilterData();
+	//		simFilterData.word1 &= ~COLLISION_FLAG_OBSTACLE;
+	//		shapes[0]->setSimulationFilterData(simFilterData);
+	//		shapes[1]->setSimulationFilterData(simFilterData);
+	//		shapes[2]->setSimulationFilterData(simFilterData);
 
-			//Now finally add the joint that will create the pendulum behaviour : rotation around a single axis.
-			const PxVec3 pendulumPos=ballStartTransform.p + PxVec3(0, gPendulumShaftLength, 0);
-			PxQuat pendulumRotation=PxQuat(PxHalfPi,PxVec3(0,1,0));
-			PxRevoluteJoint* joint=PxRevoluteJointCreate
-				(getPhysics(), 
-				 NULL, PxTransform(pendulumPos, ballStartTransform.q*pendulumRotation),
-				 actor, PxTransform(PxVec3(0,gPendulumShaftLength,0), pendulumRotation));
-			joint->setDriveVelocity(gRevoluteJointDriveSpeeds[i]);
-			joint->setRevoluteJointFlag(PxRevoluteJointFlag::eDRIVE_ENABLED, true);
-			gRevoluteJoints[gNumRevoluteJoints]=joint;
-			gNumRevoluteJoints++;
-		}
+	//		//Now finally add the joint that will create the pendulum behaviour : rotation around a single axis.
+	//		const PxVec3 pendulumPos=ballStartTransform.p + PxVec3(0, gPendulumShaftLength, 0);
+	//		PxQuat pendulumRotation=PxQuat(PxHalfPi,PxVec3(0,1,0));
+	//		PxRevoluteJoint* joint=PxRevoluteJointCreate
+	//			(getPhysics(), 
+	//			 NULL, PxTransform(pendulumPos, ballStartTransform.q*pendulumRotation),
+	//			 actor, PxTransform(PxVec3(0,gPendulumShaftLength,0), pendulumRotation));
+	//		joint->setDriveVelocity(gRevoluteJointDriveSpeeds[i]);
+	//		joint->setRevoluteJointFlag(PxRevoluteJointFlag::eDRIVE_ENABLED, true);
+	//		gRevoluteJoints[gNumRevoluteJoints]=joint;
+	//		gNumRevoluteJoints++;
+	//	}
 
-		//Work out the maximum angle of rotation allowed before the pendulum hits the support geometry.
-		//We're going to monitor the pendulum's progress at each update and reverse the pendulum drive speed
-		//if the limit is exceed.
-		const PxF32 sinTheta=(gPendulumSuspensionStructureWidth*0.5f - gPendulumBallRadius)/gPendulumShaftLength;
-		gRevoluteJointMaxTheta=PxAsin(sinTheta);
-	}
+	//	//Work out the maximum angle of rotation allowed before the pendulum hits the support geometry.
+	//	//We're going to monitor the pendulum's progress at each update and reverse the pendulum drive speed
+	//	//if the limit is exceed.
+	//	const PxF32 sinTheta=(gPendulumSuspensionStructureWidth*0.5f - gPendulumBallRadius)/gPendulumShaftLength;
+	//	gRevoluteJointMaxTheta=PxAsin(sinTheta);
+	//}
 
 	//Create a see-saw
-	{
-		//See-saw made of two separate objects : a static prism-shaped base and a ramp that balances on top of the prism.
-		//In the absence of a special material for see-saws just reuse the tarmac material.
-		PxTransform shapeTransforms[1]={PxTransform(PxIdentity)};
-		PxMaterial* shapeMaterials[1]={mStandardMaterials[SURFACE_TYPE_TARMAC]};
-		PxGeometry* shapeGeometries[1]={NULL};
+	//{
+	//	//See-saw made of two separate objects : a static prism-shaped base and a ramp that balances on top of the prism.
+	//	//In the absence of a special material for see-saws just reuse the tarmac material.
+	//	PxTransform shapeTransforms[1]={PxTransform(PxIdentity)};
+	//	PxMaterial* shapeMaterials[1]={mStandardMaterials[SURFACE_TYPE_TARMAC]};
+	//	PxGeometry* shapeGeometries[1]={NULL};
 
-		//Add the static prism-shaped object.
-		PxTransform tBase(PxVec3( -132.940292 , 8.664189 , -116.392891 ), PxQuat( -0.000319 , 0.348920 , -0.000129 , -0.937153 ) );
-		PxConvexMesh* meshBase=createPrismConvexMesh(12,3.0f,4.5f,getPhysics(), getCooking());
-		PxConvexMeshGeometry geomBase(meshBase);
-		shapeGeometries[0]=&geomBase;
-		addStaticObstacle(tBase,1,shapeTransforms,shapeGeometries,shapeMaterials);
+	//	//Add the static prism-shaped object.
+	//	PxTransform tBase(PxVec3( -132.940292 , 8.664189 , -116.392891 ), PxQuat( -0.000319 , 0.348920 , -0.000129 , -0.937153 ) );
+	//	PxConvexMesh* meshBase=createPrismConvexMesh(12,3.0f,4.5f,getPhysics(), getCooking());
+	//	PxConvexMeshGeometry geomBase(meshBase);
+	//	shapeGeometries[0]=&geomBase;
+	//	addStaticObstacle(tBase,1,shapeTransforms,shapeGeometries,shapeMaterials);
 
-		//Add the dynamic ramp that balances on the prism.
-		PxTransform tRamp(PxVec3( -130.357010 , 12.584847 , -119.381256 ), PxQuat( 0.088919 , 0.347436 , 0.033112 , -0.932891 ) ) ;
-		PxConvexMesh* meshRamp=createSquashedCuboidMesh(6.0f, 40.0f, 0.25f, 0.065f, getPhysics(), getCooking());
-		PxConvexMeshGeometry geomRamp(meshRamp);
-		shapeGeometries[0]=&geomRamp;
-		addDynamicDrivableObstacle(tRamp,1000.0f,1,shapeTransforms,shapeGeometries,shapeMaterials);
-	}
+	//	//Add the dynamic ramp that balances on the prism.
+	//	PxTransform tRamp(PxVec3( -130.357010 , 12.584847 , -119.381256 ), PxQuat( 0.088919 , 0.347436 , 0.033112 , -0.932891 ) ) ;
+	//	PxConvexMesh* meshRamp=createSquashedCuboidMesh(6.0f, 40.0f, 0.25f, 0.065f, getPhysics(), getCooking());
+	//	PxConvexMeshGeometry geomRamp(meshRamp);
+	//	shapeGeometries[0]=&geomRamp;
+	//	addDynamicDrivableObstacle(tRamp,1000.0f,1,shapeTransforms,shapeGeometries,shapeMaterials);
+	//}
 
 	//Add a really big ramp to jump over the car stack.
 	{
@@ -1865,7 +1878,7 @@ void SampleVehicle::createObstacles()
 	}
 
 	//Add three static walls
-	{
+	/*{
 		PxBoxGeometry box(8,2,1);
 		PxTransform shapeTransforms[1]={PxTransform(PxIdentity)};
 		PxGeometry* shapeGeometries[1]={&box};
@@ -1877,7 +1890,7 @@ void SampleVehicle::createObstacles()
 		addStaticObstacle(t2,1,shapeTransforms,shapeGeometries,shapeMaterials);
 		PxTransform t3(PxVec3( 157.825897 , 9.864218 , -83.961632 ), PxQuat( -0.000124 , 0.997806 , -0.000358 , -0.066201 ) );
 		addStaticObstacle(t3,1,shapeTransforms,shapeGeometries,shapeMaterials);
-	}
+	}*/
 }
 
 void SampleVehicle::collectInputEvents(std::vector<const SampleFramework::InputEvent*>& inputEvents)

@@ -107,7 +107,11 @@ public:
 	void setTarget(PxVec3 target);
 	void addTarget(PxVec3 target);
 
+	void addTarget();
+
 	void backup();
+
+	std::vector<PxVec3> getTargets() { return m_targets; }
 
 private:
 

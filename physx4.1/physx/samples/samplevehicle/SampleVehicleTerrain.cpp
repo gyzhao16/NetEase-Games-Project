@@ -473,10 +473,10 @@ void SampleVehicle::createTrack(PxU32 size, float width, float chaos)
 {
 	createTerrain(size, width, chaos);
 
-	for (int i = 0; i < (int)mNbTerrainVerts * 3; ++i)
+	/*for (int i = 0; i < (int)mNbTerrainVerts * 3; ++i)
 	{
 		mTerrainVB[3 * i + 1] = 8.0f;
-	}
+	}*/
 
 	createLandscapeMesh();
 }

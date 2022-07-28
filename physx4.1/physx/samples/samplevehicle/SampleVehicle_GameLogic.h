@@ -73,6 +73,8 @@ public:
 
 	//Get the next three points and the crossing line of each way-point.
 	void getNextWayPointsAndLineDirs(PxU32& numPoints, PxVec3& v0, PxVec3& v1, PxVec3& v2, PxVec3& w0, PxVec3& w1, PxVec3& w2) const;
+	bool getNextWayPoint(PxVec3& v) const;
+	PxU32 getmProgress() { return mProgress; }
 
 	//Get lap time and best lap time.
 	PxF32 getTimeElapsed() const {return mTimeElapsed;}

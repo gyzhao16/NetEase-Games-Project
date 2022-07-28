@@ -47,7 +47,7 @@ public:
 	PxF32 getRandom() const {return mPrecomputedRandomSequence[(mPrecomputedRandomSequenceCount++) % PRECOMPUTED_RANDOM_SEQUENCE_SIZE];}
 	PxF32 getRandomInRange(const PxF32 a, const PxF32 b)
 	{
-		PX_ASSERT(b>=a);
+		PX_ASSERT(b>a);
 		return a + (b-a)*getRandom();
 	}
 

@@ -507,7 +507,7 @@ void AutonomousController::updateTrajectoryMode(PxF32 dtime) {
 		PxF32 cos = forward.dot(target_speed);
 
 		// set accel & brake
-		float input = m_pid_accel->Compute(dtime, currentSpeed, 50.0f);
+		float input = m_pid_accel->Compute(dtime, currentSpeed, 70.0f);
 		//accel = physx::PxClamp(input, 0.0f, 1.0f);
 		//brake = physx::PxClamp(-input, 0.0f, 1.0f);
 
@@ -639,6 +639,28 @@ void AutonomousController::setTarget(PxVec3 target)
 void AutonomousController::addTarget(PxVec3 target)
 {
 	m_targets.push_back(target);
+	if (controllerMode == ControllerMode::TRAJECTORY_MODE) {
+		if (!m_paths_smoothed.empty()) {
+			lastPosition = m_paths_smoothed[0].point;
+		}
+		else {
+			const PxRigidDynamic* actor = m_vehicle->getRigidDynamicActor();
+			PxTransform pose = actor->getGlobalPose();
+			lastPosition = pose.p;
+		}
+	}
+
+	m_paths_smoothed.clear();
+	if (m_targets.size() > 0)
+	{
+		std::vector<PxVec3> temp_targets(m_targets);
+		temp_targets.insert(temp_targets.begin(), lastPosition);
+		m_paths_smoothed = CatmullRom_Smoothing(temp_targets, 0.5f, 1.0f, 0.0f);
+	}
+}
+
+void AutonomousController::addTarget()
+{
 	if (controllerMode == ControllerMode::TRAJECTORY_MODE) {
 		if (!m_paths_smoothed.empty()) {
 			lastPosition = m_paths_smoothed[0].point;

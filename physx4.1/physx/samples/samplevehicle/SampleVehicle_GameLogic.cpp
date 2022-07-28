@@ -56,6 +56,14 @@ void SampleVehicleWayPoints::getNextWayPointsAndLineDirs(PxU32& numPoints, PxVec
 	}
 }
 
+bool SampleVehicleWayPoints::getNextWayPoint(PxVec3& v) const {
+	if ((mProgress + 3) < mNumWayPoints) {
+		v = mWayPoints[mProgress + 3].p;
+		return true;
+	}
+	return false;
+}
+
 #define LINEWIDTH 8
 #define LINEDISTANCE2 3*3
 void SampleVehicleWayPoints::update(const PxTransform& playerTransform, const PxF32 timestep)
